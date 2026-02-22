@@ -2,41 +2,32 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Fake Tinder Prototype</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tinder Mock</title>
 
 <style>
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 body {
-  background: #111;
+  background: black;
   height: 100vh;
+  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
-  color: white;
 }
 
-.app {
+#app {
   width: 100%;
   max-width: 420px;
   height: 100vh;
   position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.card-container {
-  position: relative;
-  width: 100%;
-  height: 70vh;
+  overflow: hidden;
 }
 
 .card {
@@ -44,178 +35,317 @@ body {
   width: 100%;
   height: 100%;
   border-radius: 20px;
+  overflow: hidden;
   background-size: cover;
   background-position: center;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
-  display: flex;
-  align-items: flex-end;
-  padding: 20px;
   transition: transform 0.3s ease, opacity 0.3s ease;
-  touch-action: none;
 }
 
-.card::after {
-  content: "";
+.overlay-like,
+.overlay-nope {
   position: absolute;
-  inset: 0;
-  border-radius: 20px;
-  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent 60%);
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s;
 }
 
-.info {
-  position: relative;
-  z-index: 2;
+.overlay-like {
+  background: rgba(0, 255, 100, 0.4);
 }
 
-.info h2 {
-  font-size: 24px;
-  margin-bottom: 5px;
+.overlay-nope {
+  background: rgba(255, 0, 0, 0.4);
 }
 
-.info p {
+.photo-indicator {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  display: flex;
+  gap: 4px;
+}
+
+.photo-indicator div {
+  flex: 1;
+  height: 4px;
+  background: rgba(200,200,200,0.6);
+  border-radius: 2px;
+}
+
+.photo-indicator .active {
+  background: white;
+}
+
+.city {
+  position: absolute;
+  bottom: 200px;
+  width: 100%;
+  text-align: center;
+  color: #ccc;
   font-size: 14px;
-  opacity: 0.8;
+}
+
+.name {
+  position: absolute;
+  bottom: 160px;
+  width: 100%;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 600;
+  color: white;
 }
 
 .buttons {
+  position: absolute;
+  bottom: 100px;
+  width: 100%;
   display: flex;
   justify-content: center;
   gap: 40px;
-  margin-top: 30px;
 }
 
 .btn {
-  width: 65px;
-  height: 65px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
-  border: none;
-  font-size: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 26px;
+  color: white;
   cursor: pointer;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
-  transition: transform 0.2s;
-}
-
-.btn:active {
-  transform: scale(0.9);
+  user-select: none;
 }
 
 .nope {
-  background: white;
-  color: #ff4458;
+  background: #ff3b30;
 }
 
 .like {
-  background: white;
-  color: #1be4a1;
+  background: #34c759;
+}
+
+.tags-container {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.tags {
+  background: rgba(40,40,40,0.8);
+  padding: 10px;
+  border-radius: 20px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.tag {
+  background: rgba(255,255,255,0.15);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  color: rgba(255,255,255,0.8);
 }
 </style>
 </head>
 
 <body>
 
-<div class="app">
-  <div class="card-container" id="cardContainer"></div>
-
-  <div class="buttons">
-    <button class="btn nope" onclick="swipe('left')">✕</button>
-    <button class="btn like" onclick="swipe('right')">❤</button>
-  </div>
-</div>
+<div id="app"></div>
 
 <script>
 const profiles = [
   {
-    name: "Алина, 24",
-    desc: "Люблю путешествия и латте на овсяном",
-    img: "https://picsum.photos/400/700?random=1"
+    name: "Андрей",
+    age: 55,
+    city: "Нью-Йорк",
+    tags: ["188 см", "Бизнесмен", "Спорт", "Путешествия", "Йога"],
+    photos: [
+      "https://picsum.photos/400/800?1",
+      "https://picsum.photos/400/800?2",
+      "https://picsum.photos/400/800?3",
+      "https://picsum.photos/400/800?4",
+      "https://picsum.photos/400/800?5"
+    ]
   },
   {
-    name: "Максим, 27",
-    desc: "Спортзал, кино и немного философии",
-    img: "https://picsum.photos/400/700?random=2"
+    name: "Мария",
+    age: 29,
+    city: "Париж",
+    tags: ["172 см", "Дизайнер", "Искусство", "Кофе", "Музыка"],
+    photos: [
+      "https://picsum.photos/400/800?6",
+      "https://picsum.photos/400/800?7",
+      "https://picsum.photos/400/800?8",
+      "https://picsum.photos/400/800?9",
+      "https://picsum.photos/400/800?10"
+    ]
   },
   {
-    name: "София, 22",
-    desc: "Ищу приключения и интересные разговоры",
-    img: "https://picsum.photos/400/700?random=3"
+    name: "Игорь",
+    age: 34,
+    city: "Токио",
+    tags: ["180 см", "IT", "Горы", "Фото", "Бег"],
+    photos: [
+      "https://picsum.photos/400/800?11",
+      "https://picsum.photos/400/800?12",
+      "https://picsum.photos/400/800?13",
+      "https://picsum.photos/400/800?14",
+      "https://picsum.photos/400/800?15"
+    ]
   }
 ];
 
 let currentIndex = 0;
-const container = document.getElementById("cardContainer");
+let currentPhoto = 0;
 
-function createCard(profile) {
+const app = document.getElementById("app");
+
+function renderCard() {
+  const profile = profiles[currentIndex];
+  currentPhoto = 0;
+
+  app.innerHTML = "";
+
   const card = document.createElement("div");
   card.className = "card";
-  card.style.backgroundImage = `url(${profile.img})`;
+  card.style.backgroundImage = `url(${profile.photos[currentPhoto]})`;
 
-  card.innerHTML = `
-    <div class="info">
-      <h2>${profile.name}</h2>
-      <p>${profile.desc}</p>
-    </div>
-  `;
+  const overlayLike = document.createElement("div");
+  overlayLike.className = "overlay-like";
 
-  addSwipe(card);
-  return card;
-}
+  const overlayNope = document.createElement("div");
+  overlayNope.className = "overlay-nope";
 
-function renderCards() {
-  container.innerHTML = "";
-  for (let i = 0; i < 3; i++) {
-    const profile = profiles[(currentIndex + i) % profiles.length];
-    const card = createCard(profile);
-    card.style.zIndex = 3 - i;
-    card.style.transform = `scale(${1 - i * 0.05}) translateY(${i * 10}px)`;
-    container.appendChild(card);
-  }
-}
+  const indicator = document.createElement("div");
+  indicator.className = "photo-indicator";
 
-function swipe(direction) {
-  const topCard = container.children[0];
-  if (!topCard) return;
+  profile.photos.forEach((_, i) => {
+    const bar = document.createElement("div");
+    if (i === 0) bar.classList.add("active");
+    indicator.appendChild(bar);
+  });
 
-  const moveX = direction === "right" ? window.innerWidth : -window.innerWidth;
-  topCard.style.transition = "transform 0.4s ease";
-  topCard.style.transform = `translateX(${moveX}px) rotate(${direction === "right" ? 20 : -20}deg)`;
-  topCard.style.opacity = "0";
+  const city = document.createElement("div");
+  city.className = "city";
+  city.innerText = profile.city;
 
-  setTimeout(() => {
-    currentIndex = (currentIndex + 1) % profiles.length;
-    renderCards();
-  }, 400);
-}
+  const name = document.createElement("div");
+  name.className = "name";
+  name.innerText = `${profile.name}, ${profile.age}`;
 
-function addSwipe(card) {
+  const buttons = document.createElement("div");
+  buttons.className = "buttons";
+
+  const nopeBtn = document.createElement("div");
+  nopeBtn.className = "btn nope";
+  nopeBtn.innerHTML = "✕";
+
+  const likeBtn = document.createElement("div");
+  likeBtn.className = "btn like";
+  likeBtn.innerHTML = "❤";
+
+  buttons.appendChild(nopeBtn);
+  buttons.appendChild(likeBtn);
+
+  const tagsContainer = document.createElement("div");
+  tagsContainer.className = "tags-container";
+
+  const tags = document.createElement("div");
+  tags.className = "tags";
+
+  profile.tags.forEach(t => {
+    const tag = document.createElement("div");
+    tag.className = "tag";
+    tag.innerText = t;
+    tags.appendChild(tag);
+  });
+
+  tagsContainer.appendChild(tags);
+
+  card.appendChild(overlayLike);
+  card.appendChild(overlayNope);
+  card.appendChild(indicator);
+  card.appendChild(city);
+  card.appendChild(name);
+  card.appendChild(buttons);
+  card.appendChild(tagsContainer);
+
+  app.appendChild(card);
+
   let startX = 0;
   let currentX = 0;
   let isDragging = false;
 
-  card.addEventListener("pointerdown", (e) => {
-    startX = e.clientX;
+  card.addEventListener("touchstart", e => {
+    startX = e.touches[0].clientX;
     isDragging = true;
-    card.style.transition = "none";
   });
 
-  card.addEventListener("pointermove", (e) => {
+  card.addEventListener("touchmove", e => {
     if (!isDragging) return;
-    currentX = e.clientX - startX;
-    card.style.transform = `translateX(${currentX}px) rotate(${currentX * 0.05}deg)`;
+    currentX = e.touches[0].clientX - startX;
+    card.style.transform = `translateX(${currentX}px) rotate(${currentX/10}deg)`;
+
+    if (currentX > 0) {
+      overlayLike.style.opacity = Math.min(currentX/100, 1);
+    } else {
+      overlayNope.style.opacity = Math.min(-currentX/100, 1);
+    }
   });
 
-  card.addEventListener("pointerup", () => {
+  card.addEventListener("touchend", () => {
     isDragging = false;
-    card.style.transition = "transform 0.3s ease";
 
-    if (Math.abs(currentX) > 100) {
-      swipe(currentX > 0 ? "right" : "left");
+    if (Math.abs(currentX) > 120) {
+      card.style.transform = `translateX(${currentX > 0 ? 1000 : -1000}px) rotate(${currentX/10}deg)`;
+      setTimeout(nextCard, 300);
     } else {
       card.style.transform = "";
+      overlayLike.style.opacity = 0;
+      overlayNope.style.opacity = 0;
     }
+  });
+
+  function nextCard() {
+    currentIndex = (currentIndex + 1) % profiles.length;
+    renderCard();
+  }
+
+  nopeBtn.onclick = () => swipe(-1);
+  likeBtn.onclick = () => swipe(1);
+
+  function swipe(direction) {
+    card.style.transform = `translateX(${direction * 1000}px) rotate(${direction * 20}deg)`;
+    setTimeout(nextCard, 300);
+  }
+
+  card.addEventListener("click", e => {
+    const x = e.clientX;
+    if (x > window.innerWidth / 2) {
+      if (currentPhoto < profile.photos.length - 1) {
+        currentPhoto++;
+      }
+    } else {
+      if (currentPhoto > 0) {
+        currentPhoto--;
+      }
+    }
+    card.style.backgroundImage = `url(${profile.photos[currentPhoto]})`;
+    [...indicator.children].forEach((bar, i) => {
+      bar.classList.toggle("active", i === currentPhoto);
+    });
   });
 }
 
-renderCards();
+renderCard();
 </script>
 
 </body>
