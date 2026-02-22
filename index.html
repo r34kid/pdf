@@ -2,34 +2,41 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<title>Tinder Mock</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Fake Tinder Prototype</title>
 
 <style>
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-  background: linear-gradient(180deg, #fd5068, #ff7854);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 100vh;
-  overflow: hidden;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
-header {
-  margin-top: 20px;
+body {
+  background: #111;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
   color: white;
-  font-size: 28px;
-  font-weight: bold;
+}
+
+.app {
+  width: 100%;
+  max-width: 420px;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .card-container {
   position: relative;
-  width: 90%;
-  max-width: 400px;
-  height: 60vh;
-  margin-top: 20px;
+  width: 100%;
+  height: 70vh;
 }
 
 .card {
@@ -37,171 +44,178 @@ header {
   width: 100%;
   height: 100%;
   border-radius: 20px;
-  background: white;
-  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
   display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  touch-action: none;
-  transition: transform 0.3s ease-out;
-}
-
-.card img {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.card-info {
-  position: relative;
+  align-items: flex-end;
   padding: 20px;
-  background: linear-gradient(transparent, rgba(0,0,0,0.7));
-  color: white;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  touch-action: none;
 }
 
-.card-info h2 {
-  margin: 0;
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent 60%);
+}
+
+.info {
+  position: relative;
+  z-index: 2;
+}
+
+.info h2 {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+.info p {
+  font-size: 14px;
+  opacity: 0.8;
 }
 
 .buttons {
-  margin-top: 20px;
   display: flex;
+  justify-content: center;
   gap: 40px;
+  margin-top: 30px;
 }
 
-button {
-  width: 70px;
-  height: 70px;
+.btn {
+  width: 65px;
+  height: 65px;
   border-radius: 50%;
   border: none;
   font-size: 28px;
   cursor: pointer;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+  transition: transform 0.2s;
+}
+
+.btn:active {
+  transform: scale(0.9);
 }
 
 .nope {
   background: white;
-  color: #fd5068;
+  color: #ff4458;
 }
 
 .like {
   background: white;
   color: #1be4a1;
 }
-
-.label {
-  position: absolute;
-  top: 40px;
-  font-size: 32px;
-  font-weight: bold;
-  padding: 10px 20px;
-  border: 4px solid;
-  border-radius: 10px;
-  opacity: 0;
-}
-
-.like-label {
-  left: 20px;
-  color: #1be4a1;
-  border-color: #1be4a1;
-  transform: rotate(-20deg);
-}
-
-.nope-label {
-  right: 20px;
-  color: #fd5068;
-  border-color: #fd5068;
-  transform: rotate(20deg);
-}
 </style>
 </head>
 
 <body>
 
-<header>❤ CinemaMatch</header>
+<div class="app">
+  <div class="card-container" id="cardContainer"></div>
 
-<div class="card-container">
-  <div class="card" id="card">
-    <img src="https://picsum.photos/400/700" alt="">
-    <div class="label like-label" id="likeLabel">LIKE</div>
-    <div class="label nope-label" id="nopeLabel">NOPE</div>
-    <div class="card-info">
-      <h2>Алекс, 27</h2>
-      <p>Люблю кино, путешествия и ночные прогулки по городу 🌃</p>
-    </div>
+  <div class="buttons">
+    <button class="btn nope" onclick="swipe('left')">✕</button>
+    <button class="btn like" onclick="swipe('right')">❤</button>
   </div>
 </div>
 
-<div class="buttons">
-  <button class="nope" onclick="swipeLeft()">✖</button>
-  <button class="like" onclick="swipeRight()">❤</button>
-</div>
-
 <script>
-const card = document.getElementById('card');
-const likeLabel = document.getElementById('likeLabel');
-const nopeLabel = document.getElementById('nopeLabel');
-
-let startX = 0;
-let currentX = 0;
-let isDragging = false;
-
-card.addEventListener('pointerdown', (e) => {
-  startX = e.clientX;
-  isDragging = true;
-  card.style.transition = 'none';
-});
-
-card.addEventListener('pointermove', (e) => {
-  if (!isDragging) return;
-
-  currentX = e.clientX - startX;
-  const rotate = currentX * 0.1;
-
-  card.style.transform = `translateX(${currentX}px) rotate(${rotate}deg)`;
-
-  if (currentX > 0) {
-    likeLabel.style.opacity = Math.min(currentX / 100, 1);
-    nopeLabel.style.opacity = 0;
-  } else {
-    nopeLabel.style.opacity = Math.min(-currentX / 100, 1);
-    likeLabel.style.opacity = 0;
+const profiles = [
+  {
+    name: "Алина, 24",
+    desc: "Люблю путешествия и латте на овсяном",
+    img: "https://picsum.photos/400/700?random=1"
+  },
+  {
+    name: "Максим, 27",
+    desc: "Спортзал, кино и немного философии",
+    img: "https://picsum.photos/400/700?random=2"
+  },
+  {
+    name: "София, 22",
+    desc: "Ищу приключения и интересные разговоры",
+    img: "https://picsum.photos/400/700?random=3"
   }
-});
+];
 
-card.addEventListener('pointerup', () => {
-  isDragging = false;
-  card.style.transition = 'transform 0.3s ease-out';
+let currentIndex = 0;
+const container = document.getElementById("cardContainer");
 
-  if (currentX > 120) {
-    swipeRight();
-  } else if (currentX < -120) {
-    swipeLeft();
-  } else {
-    resetCard();
+function createCard(profile) {
+  const card = document.createElement("div");
+  card.className = "card";
+  card.style.backgroundImage = `url(${profile.img})`;
+
+  card.innerHTML = `
+    <div class="info">
+      <h2>${profile.name}</h2>
+      <p>${profile.desc}</p>
+    </div>
+  `;
+
+  addSwipe(card);
+  return card;
+}
+
+function renderCards() {
+  container.innerHTML = "";
+  for (let i = 0; i < 3; i++) {
+    const profile = profiles[(currentIndex + i) % profiles.length];
+    const card = createCard(profile);
+    card.style.zIndex = 3 - i;
+    card.style.transform = `scale(${1 - i * 0.05}) translateY(${i * 10}px)`;
+    container.appendChild(card);
   }
-});
-
-function resetCard() {
-  card.style.transform = '';
-  likeLabel.style.opacity = 0;
-  nopeLabel.style.opacity = 0;
-  currentX = 0;
 }
 
-function swipeRight() {
-  card.style.transform = 'translateX(1000px) rotate(30deg)';
-  likeLabel.style.opacity = 1;
-  setTimeout(resetCard, 300);
+function swipe(direction) {
+  const topCard = container.children[0];
+  if (!topCard) return;
+
+  const moveX = direction === "right" ? window.innerWidth : -window.innerWidth;
+  topCard.style.transition = "transform 0.4s ease";
+  topCard.style.transform = `translateX(${moveX}px) rotate(${direction === "right" ? 20 : -20}deg)`;
+  topCard.style.opacity = "0";
+
+  setTimeout(() => {
+    currentIndex = (currentIndex + 1) % profiles.length;
+    renderCards();
+  }, 400);
 }
 
-function swipeLeft() {
-  card.style.transform = 'translateX(-1000px) rotate(-30deg)';
-  nopeLabel.style.opacity = 1;
-  setTimeout(resetCard, 300);
+function addSwipe(card) {
+  let startX = 0;
+  let currentX = 0;
+  let isDragging = false;
+
+  card.addEventListener("pointerdown", (e) => {
+    startX = e.clientX;
+    isDragging = true;
+    card.style.transition = "none";
+  });
+
+  card.addEventListener("pointermove", (e) => {
+    if (!isDragging) return;
+    currentX = e.clientX - startX;
+    card.style.transform = `translateX(${currentX}px) rotate(${currentX * 0.05}deg)`;
+  });
+
+  card.addEventListener("pointerup", () => {
+    isDragging = false;
+    card.style.transition = "transform 0.3s ease";
+
+    if (Math.abs(currentX) > 100) {
+      swipe(currentX > 0 ? "right" : "left");
+    } else {
+      card.style.transform = "";
+    }
+  });
 }
+
+renderCards();
 </script>
 
 </body>
