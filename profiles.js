@@ -1,5 +1,5 @@
 // profiles.js - общий файл с данными профилей
-// Автоматически сгенерировано редактором 23.02.2026, 22:04:26
+// Автоматически сгенерировано редактором 23.02.2026, 22:06:06
 const profiles = [
   {
     "name": "Андрей, 55",
@@ -56,6 +56,18 @@ const profiles = [
       "https://picsum.photos/500/900?random=13",
       "https://picsum.photos/500/900?random=14",
       "https://picsum.photos/500/900?random=15"
+    ]
+  },
+  {
+    "name": "Залупа, 12",
+    "distance": "10 км от вас",
+    "tags": [
+      "Тег 1",
+      "Тег 2"
+    ],
+    "description": "Описание нового профиля",
+    "photos": [
+      "https://picsum.photos/500/900?random=100"
     ]
   }
 ];
