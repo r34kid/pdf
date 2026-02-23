@@ -476,13 +476,13 @@ function checkDescriptionHeight(descContainer, buttonsContainer) {
       if (isExpanded) {
         // Разворачиваем описание
         descContainer.classList.add('expanded');
-        showMoreBtn.textContent = '🔽 Скрыть';
+        showMoreBtn.textContent = 'Скрыть';
         // Прячем кнопки
         buttonsContainer.classList.add('hidden');
       } else {
         // Сворачиваем описание
         descContainer.classList.remove('expanded');
-        showMoreBtn.textContent = '📖 Показать полностью';
+        showMoreBtn.textContent = 'Показать полностью';
         // Показываем кнопки
         buttonsContainer.classList.remove('hidden');
       }
