@@ -328,16 +328,16 @@ button {
 }
 
 /* Убираем все выделения с кнопок */
-.btn,
-.btn *,
-.btn:active,
-.btn:focus,
-.btn:hover,
-.btn:visited,
-.show-more-btn,
-.show-more-btn:active,
-.show-more-btn:focus,
-.show-more-btn:hover {
+button,
+button *,
+button:active,
+button:focus,
+button:hover,
+button:visited,
+button,
+button:active,
+button:focus,
+button:hover {
   -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -352,35 +352,17 @@ button {
   border: none;
 }
 
-/* Убираем синее выделение на мобильных */
-.btn:active,
-.show-more-btn:active {
-  opacity: 0.7; /* легкий эффект нажатия, если хочешь */
-  transform: scale(0.98); /* легкое сжатие */
-}
-
 /* Убираем стандартный outline для всех элементов */
 *:focus {
   outline: none !important;
   box-shadow: none !important;
 }
 
-/* Для кнопок лайк/дизлайк оставляем фон, но убираем выделение */
-.btn.dislike,
-.btn.superlike,
-.btn.like {
-  background: rgba(255,255,255,0.1); /* твой текущий фон */
-  -webkit-tap-highlight-color: transparent;
-  outline: none;
-  box-shadow: none;
-}
-
 /* Для кнопки "показать полностью" */
-.show-more-btn {
+button {
   background: none;
   border: none;
   color: white;
-  padding: 8px 16px;
   font-size: 0.9em;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
@@ -389,15 +371,14 @@ button {
 }
 
 /* Убираем серый фон при тапе на мобильных */
-.show-more-btn:active,
-.btn:active {
+button:active {
   background: none !important;
   -webkit-tap-highlight-color: transparent;
 }
 
 /* Если хочешь совсем без эффектов */
-.show-more-btn:active,
-.btn:active {
+button:active,
+button:active {
   opacity: 1;
   transform: none;
 }
