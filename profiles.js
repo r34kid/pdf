@@ -1,5 +1,5 @@
 // profiles.js - общий файл с данными профилей
-// Автоматически сгенерировано редактором 23.02.2026, 22:25:23
+// Автоматически сгенерировано редактором 23.02.2026, 22:31:52
 const profiles = [
   {
     "name": "Андрей, 55",
@@ -81,6 +81,19 @@ const profiles = [
     "photos": [
       "https://is1-ssl.mzstatic.com/image/thumb/Features114/v4/e6/68/c4/e668c4b4-1141-1efd-aa7c-84ab5e5dcd32/pr_source.png/1200x675.jpg",
       "https://lisa.ru/images/cache/2021/11/22/fit_414_530_false_crop_1027_577_0_37_q90_1345142_b5317d29d04d3342ffbd42770.png"
+    ]
+  },
+  {
+    "name": "Валентина, 30",
+    "distance": "1444 км от вас",
+    "tags": [
+      "ЖИВУНЕТУЖУ",
+      "собачий кайф",
+      "копенгаген"
+    ],
+    "description": "Работаю в YANDEX",
+    "photos": [
+      "https://i.ytimg.com/vi/wWRSFTulm5g/maxresdefault.jpg"
     ]
   }
 ];
