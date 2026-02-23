@@ -330,6 +330,38 @@ function createCard(profile) {
     </div>
     `;
 
+  // Добавляем обработчики для кнопок с stopPropagation
+  const dislikeBtn = buttons.querySelector('.dislike');
+  const superlikeBtn = buttons.querySelector('.superlike');
+  const likeBtn = buttons.querySelector('.like');
+
+  dislikeBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    // Здесь будет логика дизлайка
+    console.log('Dislike');
+    // Анимация свайпа влево
+    card.style.transform = 'translateX(-1000px) rotate(-20deg)';
+    setTimeout(nextProfile, 300);
+  });
+
+  superlikeBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    // Здесь будет логика суперлайка
+    console.log('Superlike');
+    // Анимация свайпа вверх
+    card.style.transform = 'translateY(-1000px)';
+    setTimeout(nextProfile, 300);
+  });
+
+  likeBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    // Здесь будет логика лайка
+    console.log('Like');
+    // Анимация свайпа вправо
+    card.style.transform = 'translateX(1000px) rotate(20deg)';
+    setTimeout(nextProfile, 300);
+  });
+
   bottom.appendChild(name);
   bottom.appendChild(tags);
   bottom.appendChild(desc);
