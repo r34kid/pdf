@@ -1,5 +1,5 @@
 // profiles.js - общий файл с данными профилей
-// Автоматически сгенерировано редактором 23.02.2026, 23:58:11
+// Автоматически сгенерировано редактором 24.02.2026, 00:45:48
 const profiles = [
   {
     "name": "Николай, 26",
@@ -53,7 +53,8 @@ const profiles = [
     ],
     "description": "",
     "photos": [
-      "https://picsum.photos/500/900?random=100"
+      "https://is1-ssl.mzstatic.com/image/thumb/Features114/v4/e6/68/c4/e668c4b4-1141-1efd-aa7c-84ab5e5dcd32/pr_source.png/1200x675.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/Features114/v4/e6/68/c4/e668c4b4-1141-1efd-aa7c-84ab5e5dcd32/pr_source.png/1200x675.jpg"
     ]
   },
   {
@@ -67,7 +68,8 @@ const profiles = [
     ],
     "description": "ТАРЕЛОЧНИЦЫ МИМО\n\nДевушки ходят по клубам, изменяют, встречаться за деньги мимо.\nИщу девушку ОБЫЧНУЮ за спорт, за доверие, без вредных привычек, готова к семье, не ходит по клубам.\nЯ 176 см, 63 кг, атлет, спортсмен, по клубам не хожу",
     "photos": [
-      "https://picsum.photos/500/900?random=100"
+      "https://is1-ssl.mzstatic.com/image/thumb/Features114/v4/e6/68/c4/e668c4b4-1141-1efd-aa7c-84ab5e5dcd32/pr_source.png/1200x675.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/Features114/v4/e6/68/c4/e668c4b4-1141-1efd-aa7c-84ab5e5dcd32/pr_source.png/1200x675.jpg"
     ]
   },
   {
@@ -80,7 +82,8 @@ const profiles = [
     ],
     "description": "фото в лс\nДам тебе то, что не сможет ни один холостяк\nЗнаю чего хочу, какую и зачем",
     "photos": [
-      "https://picsum.photos/500/900?random=100"
+      "https://is1-ssl.mzstatic.com/image/thumb/Features114/v4/e6/68/c4/e668c4b4-1141-1efd-aa7c-84ab5e5dcd32/pr_source.png/1200x675.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/Features114/v4/e6/68/c4/e668c4b4-1141-1efd-aa7c-84ab5e5dcd32/pr_source.png/1200x675.jpg"
     ]
   },
   {
@@ -93,7 +96,8 @@ const profiles = [
     ],
     "description": "Учусь, работаю, хожу в зальчик. Люблю футбол, теннис, книги, игры, сериалы. На серьезное не зарекаюсь, но всякое бывает)",
     "photos": [
-      "https://picsum.photos/500/900?random=100"
+      "https://is1-ssl.mzstatic.com/image/thumb/Features114/v4/e6/68/c4/e668c4b4-1141-1efd-aa7c-84ab5e5dcd32/pr_source.png/1200x675.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/Features114/v4/e6/68/c4/e668c4b4-1141-1efd-aa7c-84ab5e5dcd32/pr_source.png/1200x675.jpg"
     ]
   },
   {
@@ -105,7 +109,8 @@ const profiles = [
     ],
     "description": "интелектуальное общение",
     "photos": [
-      "https://picsum.photos/500/900?random=100"
+      "https://is1-ssl.mzstatic.com/image/thumb/Features114/v4/e6/68/c4/e668c4b4-1141-1efd-aa7c-84ab5e5dcd32/pr_source.png/1200x675.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/Features114/v4/e6/68/c4/e668c4b4-1141-1efd-aa7c-84ab5e5dcd32/pr_source.png/1200x675.jpg"
     ]
   },
   {
@@ -117,7 +122,8 @@ const profiles = [
     ],
     "description": "Предпочитаю, когда женщина постарше. Способен оплачивать коммунарку и покупать огурцы",
     "photos": [
-      "https://picsum.photos/500/900?random=100"
+      "https://is1-ssl.mzstatic.com/image/thumb/Features114/v4/e6/68/c4/e668c4b4-1141-1efd-aa7c-84ab5e5dcd32/pr_source.png/1200x675.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/Features114/v4/e6/68/c4/e668c4b4-1141-1efd-aa7c-84ab5e5dcd32/pr_source.png/1200x675.jpg"
     ]
   },
   {
@@ -130,7 +136,8 @@ const profiles = [
     ],
     "description": "Физическая красота женщины не производит на меня никакого эффекта. Разве только если она сопровождается красотой души, тогда она производит эффект весьма необыкновенный. Она возбуждает во мне желание испытать эту красоту - доступна ли она, или неуязвима. Какой я нахожу ее, такой я ее и оставлю",
     "photos": [
-      "https://picsum.photos/500/900?random=100"
+      "https://is1-ssl.mzstatic.com/image/thumb/Features114/v4/e6/68/c4/e668c4b4-1141-1efd-aa7c-84ab5e5dcd32/pr_source.png/1200x675.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/Features114/v4/e6/68/c4/e668c4b4-1141-1efd-aa7c-84ab5e5dcd32/pr_source.png/1200x675.jpg"
     ]
   },
   {
@@ -139,7 +146,8 @@ const profiles = [
     "tags": [],
     "description": "ВСЕХ ПОДРЯД НЕ ЛАЙКАЮ\nкак пойдет диалог имеет значение",
     "photos": [
-      "https://picsum.photos/500/900?random=100"
+      "https://is1-ssl.mzstatic.com/image/thumb/Features114/v4/e6/68/c4/e668c4b4-1141-1efd-aa7c-84ab5e5dcd32/pr_source.png/1200x675.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/Features114/v4/e6/68/c4/e668c4b4-1141-1efd-aa7c-84ab5e5dcd32/pr_source.png/1200x675.jpg"
     ]
   },
   {
@@ -154,7 +162,8 @@ const profiles = [
     ],
     "description": "УДИВИ",
     "photos": [
-      "https://picsum.photos/500/900?random=100"
+      "https://is1-ssl.mzstatic.com/image/thumb/Features114/v4/e6/68/c4/e668c4b4-1141-1efd-aa7c-84ab5e5dcd32/pr_source.png/1200x675.jpg",
+      "https://is1-ssl.mzstatic.com/image/thumb/Features114/v4/e6/68/c4/e668c4b4-1141-1efd-aa7c-84ab5e5dcd32/pr_source.png/1200x675.jpg"
     ]
   }
 ];
