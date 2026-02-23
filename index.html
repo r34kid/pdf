@@ -75,7 +75,7 @@ html, body {
   /* transform: scale(0.95) translateY(10px); */
   opacity: 0.8;
   z-index: 1;
-  filter: blur(5px); /* Добавляем размытие */
+  filter: blur(10px); /* Добавляем размытие */
   -webkit-filter: blur(2px); /* Для Safari */
 }
 
@@ -374,20 +374,29 @@ button {
   border: none;
   outline: none;
   box-shadow: none;
-};
+}
 
 button:focus,
 button:active {
   outline: none;
   box-shadow: none;
-};
+}
 
 button {
   all: unset;
   display: block;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
-};
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.show-more-btn {
+  gap: 0px;
+}
 
 </style>
 </head>
