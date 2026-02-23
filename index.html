@@ -366,6 +366,7 @@ button {
   font-size: 0.9em;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
+  
   outline: none;
   box-shadow: none;
 }
@@ -382,6 +383,30 @@ button:active {
   opacity: 1;
   transform: none;
 }
+
+button {
+  -webkit-tap-highlight-color: transparent; /* убирает серую/синюю вспышку */
+};
+
+button {
+  background: none;
+  border: none;
+  outline: none;
+  box-shadow: none;
+};
+
+button:focus,
+button:active {
+  outline: none;
+  box-shadow: none;
+};
+
+button {
+  all: unset;
+  display: block;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+};
 
 </style>
 </head>
