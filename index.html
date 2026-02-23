@@ -283,6 +283,9 @@ html, body {
   pointer-events: none;
 }
 
+button {
+  background: none;
+};
 
 </style>
 </head>
@@ -462,7 +465,7 @@ function checkDescriptionHeight(descContainer, buttonsContainer) {
     // Создаем кнопку "показать полностью"
     const showMoreBtn = document.createElement('button');
     showMoreBtn.className = 'show-more-btn';
-    showMoreBtn.textContent = '📖 Показать полностью';
+    showMoreBtn.textContent = 'Показать полностью';
     
     // Вставляем после контейнера с описанием
     descContainer.parentNode.insertBefore(showMoreBtn, descContainer.nextSibling);
