@@ -27,6 +27,12 @@ html, body {
   height: 90vh; /* теперь карточка занимает 85% */
   overflow: hidden;
 }
+/* Стек карточек */
+.card-stack {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
 
 .card {
   position: absolute;
@@ -39,8 +45,26 @@ html, body {
   flex-direction: column;
   justify-content: space-between;
   padding: 20px;
-  border-radius: 25px; /* небольшой радиус */
+  border-radius: 25px;
   overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* Карточка под текущей */
+.card.next {
+  transform: scale(0.95) translateY(10px);
+  opacity: 0.8;
+  z-index: 1;
+}
+
+/* Текущая карточка */
+.card.current {
+  z-index: 10;
+  cursor: grab;
+}
+
+.card.current:active {
+  cursor: grabbing;
 }
 
 .card::before {
@@ -49,7 +73,7 @@ html, body {
   inset: 0;
   background:
     linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 40%),
-    linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0) 80%);
+    linear-gradient(to top, rgba(0,0,0,0.98) 0%, rgba(0,0,0,0.7) 25%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0) 75%);
   pointer-events: none;
 }
 
@@ -221,32 +245,35 @@ html, body {
 <script>
 let currentProfileIndex = 0;
 let currentPhotoIndex = 0;
-let profilesList = []; // Будет загружаться из profiles.js
+let profilesList = [];
+let isAnimating = false;
 
 const app = document.getElementById("app");
 
-// Инициализация - profiles загружен из внешнего файла
-profilesList = profiles; // profiles приходит из profiles.js
+// Инициализация
+profilesList = profiles;
 
-function createCard(profile) {
+function createCard(profile, isNext = false) {
   const card = document.createElement("div");
-  card.className = "card";
-  card.style.backgroundImage = `url(${profile.photos[currentPhotoIndex]})`;
+  card.className = `card ${isNext ? 'next' : 'current'}`;
+  card.style.backgroundImage = `url(${profile.photos[isNext ? 0 : currentPhotoIndex]})`;
 
+  // Оверлеи
   const likeOverlay = document.createElement("div");
   likeOverlay.className = "overlay-like";
   const dislikeOverlay = document.createElement("div");
   dislikeOverlay.className = "overlay-dislike";
 
+  // Верхняя часть
   const top = document.createElement("div");
   top.className = "top";
 
+  // Индикаторы фото
   const indicators = document.createElement("div");
   indicators.className = "photo-indicators";
-
   profile.photos.forEach((_, i) => {
     const bar = document.createElement("div");
-    if(i === currentPhotoIndex) bar.classList.add("active");
+    if(i === (isNext ? 0 : currentPhotoIndex)) bar.classList.add("active");
     indicators.appendChild(bar);
   });
 
@@ -257,6 +284,7 @@ function createCard(profile) {
   top.appendChild(indicators);
   top.appendChild(distance);
 
+  // Нижняя часть
   const bottom = document.createElement("div");
   bottom.className = "bottom";
 
@@ -275,10 +303,13 @@ function createCard(profile) {
 
   const desc = document.createElement("div");
   desc.className = "description";
+  desc.style.whiteSpace = "pre-line";
   desc.textContent = profile.description;
 
-  const buttons = document.createElement("div");
-  buttons.className = "buttons";
+  // Кнопки (только для текущей карточки)
+  if (!isNext) {
+    const buttons = document.createElement("div");
+    buttons.className = "buttons";
   buttons.innerHTML = `
     <div class="btn dislike">
       <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><title>Multiply SVG Icon</title><path fill="currentColor" d="M7.223 2.893a3.072 3.072 0 0 0-4.33 0a3.084 3.084 0 0 0 0 4.34l8.747 8.744l-8.737 8.746a3.072 3.072 0 0 0 0 4.33a3.072 3.072 0 0 0 4.33 0l8.74-8.745l8.74 8.735a3.072 3.072 0 0 0 4.33 0a3.072 3.072 0 0 0 0-4.33l-8.738-8.738l8.747-8.752a3.072 3.072 0 0 0 0-4.33c-1.2-1.19-3.15-1.19-4.34 0l-8.74 8.749z"/></svg>
@@ -294,51 +325,76 @@ function createCard(profile) {
       </svg>
     </div>
     `;
+    // Обработчики кнопок
+    const dislikeBtn = buttons.querySelector('.dislike');
+    const superlikeBtn = buttons.querySelector('.superlike');
+    const likeBtn = buttons.querySelector('.like');
 
-  // Добавляем обработчики для кнопок с stopPropagation
-  const dislikeBtn = buttons.querySelector('.dislike');
-  const superlikeBtn = buttons.querySelector('.superlike');
-  const likeBtn = buttons.querySelector('.like');
+    dislikeBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      swipeCard('left');
+    });
 
-  dislikeBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    console.log('Dislike');
-    card.style.transform = 'translateX(-1000px) rotate(-20deg)';
-    setTimeout(nextProfile, 300);
-  });
+    superlikeBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      swipeCard('up');
+    });
 
-  superlikeBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    console.log('Superlike');
-    card.style.transform = 'translateY(-1000px)';
-    setTimeout(nextProfile, 300);
-  });
+    likeBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      swipeCard('right');
+    });
 
-  likeBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    console.log('Like');
-    card.style.transform = 'translateX(1000px) rotate(20deg)';
-    setTimeout(nextProfile, 300);
-  });
+    bottom.appendChild(buttons);
+  }
 
   bottom.appendChild(name);
   bottom.appendChild(tags);
   bottom.appendChild(desc);
-  bottom.appendChild(buttons);
 
   card.appendChild(likeOverlay);
   card.appendChild(dislikeOverlay);
   card.appendChild(top);
   card.appendChild(bottom);
 
-  handleSwipe(card, likeOverlay, dislikeOverlay);
-  handlePhotoClick(card, profile);
+  if (!isNext) {
+    handleSwipe(card, likeOverlay, dislikeOverlay);
+    handlePhotoClick(card, profile);
+  }
 
   return card;
 }
 
+function swipeCard(direction) {
+  if (isAnimating) return;
+  isAnimating = true;
+
+  const currentCard = document.querySelector('.card.current');
+  if (!currentCard) return;
+
+  let transform = '';
+  switch(direction) {
+    case 'left':
+      transform = 'translateX(-1000px) rotate(-20deg)';
+      break;
+    case 'right':
+      transform = 'translateX(1000px) rotate(20deg)';
+      break;
+    case 'up':
+      transform = 'translateY(-1000px)';
+      break;
+  }
+
+  currentCard.style.transform = transform;
+  currentCard.style.opacity = '0';
+
+  setTimeout(() => {
+    nextProfile();
+    isAnimating = false;
+  }, 300);
+}
+
 function nextProfile() {
-  // Переходим к следующему профилю
   currentProfileIndex = (currentProfileIndex + 1) % profilesList.length;
   currentPhotoIndex = 0;
   render();
@@ -346,14 +402,21 @@ function nextProfile() {
 
 function render() {
   app.innerHTML = "";
+  
   if (profilesList.length > 0) {
-    app.appendChild(createCard(profilesList[currentProfileIndex]));
+    // Сначала создаем следующую карточку (будет снизу)
+    const nextIndex = (currentProfileIndex + 1) % profilesList.length;
+    const nextCard = createCard(profilesList[nextIndex], true);
+    app.appendChild(nextCard);
+    
+    // Потом текущую карточку (будет сверху)
+    const currentCard = createCard(profilesList[currentProfileIndex], false);
+    app.appendChild(currentCard);
   }
 }
 
 function handlePhotoClick(card, profile) {
   card.addEventListener("click", e => {
-    // Предотвращаем срабатывание при клике на кнопки
     if (e.target.closest('.btn')) return;
     
     if(e.clientX > window.innerWidth / 2) {
@@ -371,27 +434,95 @@ function handleSwipe(card, likeOverlay, dislikeOverlay) {
   let isDragging = false;
 
   card.addEventListener("touchstart", e => {
+    if (isAnimating) return;
     startX = e.touches[0].clientX;
     isDragging = true;
+    card.style.transition = 'none';
   });
 
   card.addEventListener("touchmove", e => {
-    if(!isDragging) return;
+    if(!isDragging || isAnimating) return;
+    e.preventDefault();
+    
     currentX = e.touches[0].clientX - startX;
     card.style.transform = `translateX(${currentX}px) rotate(${currentX/10}deg)`;
 
     if(currentX > 0) {
-      likeOverlay.style.opacity = Math.min(currentX / 150, 1);
+      likeOverlay.style.opacity = Math.min(currentX / 150, 0.8);
+      dislikeOverlay.style.opacity = 0;
     } else {
-      dislikeOverlay.style.opacity = Math.min(-currentX / 150, 1);
+      dislikeOverlay.style.opacity = Math.min(-currentX / 150, 0.8);
+      likeOverlay.style.opacity = 0;
     }
   });
 
   card.addEventListener("touchend", () => {
+    if (!isDragging || isAnimating) return;
+    
+    card.style.transition = 'transform 0.4s ease, opacity 0.4s ease';
     isDragging = false;
-    if(Math.abs(currentX) > 120) {
+
+    if (Math.abs(currentX) > 100) {
+      isAnimating = true;
+      const direction = currentX > 0 ? 'right' : 'left';
+      
       card.style.transform = `translateX(${currentX > 0 ? 1000 : -1000}px) rotate(${currentX/10}deg)`;
-      setTimeout(nextProfile, 300);
+      card.style.opacity = '0';
+      
+      setTimeout(() => {
+        nextProfile();
+        isAnimating = false;
+      }, 300);
+    } else {
+      card.style.transform = "";
+      likeOverlay.style.opacity = 0;
+      dislikeOverlay.style.opacity = 0;
+    }
+    currentX = 0;
+  });
+
+  // Добавляем поддержку мыши для тестирования на компьютере
+  card.addEventListener("mousedown", e => {
+    if (isAnimating) return;
+    e.preventDefault();
+    startX = e.clientX;
+    isDragging = true;
+    card.style.transition = 'none';
+  });
+
+  window.addEventListener("mousemove", e => {
+    if(!isDragging || isAnimating) return;
+    e.preventDefault();
+    
+    currentX = e.clientX - startX;
+    card.style.transform = `translateX(${currentX}px) rotate(${currentX/10}deg)`;
+
+    if(currentX > 0) {
+      likeOverlay.style.opacity = Math.min(currentX / 150, 0.8);
+      dislikeOverlay.style.opacity = 0;
+    } else {
+      dislikeOverlay.style.opacity = Math.min(-currentX / 150, 0.8);
+      likeOverlay.style.opacity = 0;
+    }
+  });
+
+  window.addEventListener("mouseup", () => {
+    if (!isDragging || isAnimating) return;
+    
+    card.style.transition = 'transform 0.4s ease, opacity 0.4s ease';
+    isDragging = false;
+
+    if (Math.abs(currentX) > 100) {
+      isAnimating = true;
+      const direction = currentX > 0 ? 'right' : 'left';
+      
+      card.style.transform = `translateX(${currentX > 0 ? 1000 : -1000}px) rotate(${currentX/10}deg)`;
+      card.style.opacity = '0';
+      
+      setTimeout(() => {
+        nextProfile();
+        isAnimating = false;
+      }, 300);
     } else {
       card.style.transform = "";
       likeOverlay.style.opacity = 0;
@@ -401,10 +532,8 @@ function handleSwipe(card, likeOverlay, dislikeOverlay) {
   });
 }
 
-// Проверяем, загрузились ли профили
+// Проверка загрузки
 if (profilesList.length === 0) {
-  console.error('Профили не загружены! Проверьте profiles.js');
-  // Добавляем тестовый профиль на случай ошибки
   profilesList = [{
     name: "Тестовый профиль",
     distance: "Ошибка загрузки",
