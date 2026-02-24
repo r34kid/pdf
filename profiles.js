@@ -1,5 +1,5 @@
 // profiles.js - общий файл с данными профилей
-// Автоматически сгенерировано редактором 24.02.2026, 15:28:46
+// Автоматически сгенерировано редактором 24.02.2026, 18:33:43
 const profiles = [
   {
     "name": "Николай, 26",
@@ -26,19 +26,6 @@ const profiles = [
     "photos": [
       "https://is1-ssl.mzstatic.com/image/thumb/Features114/v4/e6/68/c4/e668c4b4-1141-1efd-aa7c-84ab5e5dcd32/pr_source.png/1200x675.jpg",
       "https://lisa.ru/images/cache/2021/11/22/fit_414_530_false_crop_1027_577_0_37_q90_1345142_b5317d29d04d3342ffbd42770.png"
-    ]
-  },
-  {
-    "name": "Валентина, 30",
-    "distance": "1444 км от вас",
-    "tags": [
-      "ЖИВУНЕТУЖУ",
-      "собачий кайф",
-      "копенгаген"
-    ],
-    "description": "Работаю в YANDEX",
-    "photos": [
-      "https://i.ytimg.com/vi/wWRSFTulm5g/maxresdefault.jpg"
     ]
   },
   {
@@ -107,8 +94,8 @@ const profiles = [
     ],
     "description": "интелектуальное общение",
     "photos": [
-      "https://is1-ssl.mzstatic.com/image/thumb/Features114/v4/e6/68/c4/e668c4b4-1141-1efd-aa7c-84ab5e5dcd32/pr_source.png/1200x675.jpg",
-      "https://is1-ssl.mzstatic.com/image/thumb/Features114/v4/e6/68/c4/e668c4b4-1141-1efd-aa7c-84ab5e5dcd32/pr_source.png/1200x675.jpg"
+      "https://i.pinimg.com/1200x/93/cb/b0/93cbb0777fb307afebd14b0520b5b444.jpg",
+      "https://i.pinimg.com/736x/16/c2/04/16c2043208f9c92bccad499d59c56173.jpg"
     ]
   },
   {
@@ -120,8 +107,7 @@ const profiles = [
     ],
     "description": "Предпочитаю, когда женщина постарше. Способен оплачивать коммунарку и покупать огурцы",
     "photos": [
-      "https://is1-ssl.mzstatic.com/image/thumb/Features114/v4/e6/68/c4/e668c4b4-1141-1efd-aa7c-84ab5e5dcd32/pr_source.png/1200x675.jpg",
-      "https://is1-ssl.mzstatic.com/image/thumb/Features114/v4/e6/68/c4/e668c4b4-1141-1efd-aa7c-84ab5e5dcd32/pr_source.png/1200x675.jpg"
+      "https://i.pinimg.com/736x/12/1b/ba/121bba3b1e8f4d6e70907f268395f3ac.jpg"
     ]
   },
   {
@@ -134,8 +120,7 @@ const profiles = [
     ],
     "description": "Физическая красота женщины не производит на меня никакого эффекта. Разве только если она сопровождается красотой души, тогда она производит эффект весьма необыкновенный. Она возбуждает во мне желание испытать эту красоту - доступна ли она, или неуязвима. Какой я нахожу ее, такой я ее и оставлю",
     "photos": [
-      "https://is1-ssl.mzstatic.com/image/thumb/Features114/v4/e6/68/c4/e668c4b4-1141-1efd-aa7c-84ab5e5dcd32/pr_source.png/1200x675.jpg",
-      "https://is1-ssl.mzstatic.com/image/thumb/Features114/v4/e6/68/c4/e668c4b4-1141-1efd-aa7c-84ab5e5dcd32/pr_source.png/1200x675.jpg"
+      "https://i.pinimg.com/1200x/b3/e1/d2/b3e1d2aacb27298d642c8b71566176cc.jpg"
     ]
   },
   {
@@ -144,8 +129,7 @@ const profiles = [
     "tags": [],
     "description": "ВСЕХ ПОДРЯД НЕ ЛАЙКАЮ\nкак пойдет диалог имеет значение",
     "photos": [
-      "https://is1-ssl.mzstatic.com/image/thumb/Features114/v4/e6/68/c4/e668c4b4-1141-1efd-aa7c-84ab5e5dcd32/pr_source.png/1200x675.jpg",
-      "https://is1-ssl.mzstatic.com/image/thumb/Features114/v4/e6/68/c4/e668c4b4-1141-1efd-aa7c-84ab5e5dcd32/pr_source.png/1200x675.jpg"
+      "https://i.pinimg.com/736x/45/4b/19/454b1918c61307b38908ddf284e47b1b.jpg"
     ]
   },
   {
@@ -160,8 +144,7 @@ const profiles = [
     ],
     "description": "УДИВИ",
     "photos": [
-      "https://is1-ssl.mzstatic.com/image/thumb/Features114/v4/e6/68/c4/e668c4b4-1141-1efd-aa7c-84ab5e5dcd32/pr_source.png/1200x675.jpg",
-      "https://is1-ssl.mzstatic.com/image/thumb/Features114/v4/e6/68/c4/e668c4b4-1141-1efd-aa7c-84ab5e5dcd32/pr_source.png/1200x675.jpg"
+      "https://i.pinimg.com/736x/69/cd/b8/69cdb8d02e8e37ac400891f60f76cae8.jpg"
     ]
   }
 ];
