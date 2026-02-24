@@ -1,5 +1,5 @@
 // profiles.js - общий файл с данными профилей
-// Автоматически сгенерировано редактором 24.02.2026, 00:45:48
+// Автоматически сгенерировано редактором 24.02.2026, 15:21:54
 const profiles = [
   {
     "name": "Николай, 26",
@@ -38,7 +38,7 @@ const profiles = [
     ],
     "description": "Работаю в YANDEX",
     "photos": [
-      "https://i.ytimg.com/vi/wWRSFTulm5g/maxresdefault.jpg"
+      "https://i.pinimg.com/736x/37/37/6a/37376a5600ec96333ca855d183583ac0.jpg"
     ]
   },
   {
