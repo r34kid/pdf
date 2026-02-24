@@ -1,5 +1,5 @@
 // profiles.js - общий файл с данными профилей
-// Автоматически сгенерировано редактором 24.02.2026, 15:21:54
+// Автоматически сгенерировано редактором 24.02.2026, 15:27:40
 const profiles = [
   {
     "name": "Николай, 26",
@@ -38,7 +38,7 @@ const profiles = [
     ],
     "description": "Работаю в YANDEX",
     "photos": [
-      "https://i.pinimg.com/736x/37/37/6a/37376a5600ec96333ca855d183583ac0.jpg"
+      "https://i.ytimg.com/vi/wWRSFTulm5g/maxresdefault.jpg"
     ]
   },
   {
@@ -53,8 +53,8 @@ const profiles = [
     ],
     "description": "",
     "photos": [
-      "https://is1-ssl.mzstatic.com/image/thumb/Features114/v4/e6/68/c4/e668c4b4-1141-1efd-aa7c-84ab5e5dcd32/pr_source.png/1200x675.jpg",
-      "https://is1-ssl.mzstatic.com/image/thumb/Features114/v4/e6/68/c4/e668c4b4-1141-1efd-aa7c-84ab5e5dcd32/pr_source.png/1200x675.jpg"
+      "https://i.pinimg.com/736x/b0/9d/40/b09d408e5153007370469031ef9126fe.jpg",
+      "https://i.pinimg.com/1200x/05/ec/a4/05eca4c0292df28cc2b7c4096c284d6e.jpg"
     ]
   },
   {
@@ -68,8 +68,8 @@ const profiles = [
     ],
     "description": "ТАРЕЛОЧНИЦЫ МИМО\n\nДевушки ходят по клубам, изменяют, встречаться за деньги мимо.\nИщу девушку ОБЫЧНУЮ за спорт, за доверие, без вредных привычек, готова к семье, не ходит по клубам.\nЯ 176 см, 63 кг, атлет, спортсмен, по клубам не хожу",
     "photos": [
-      "https://is1-ssl.mzstatic.com/image/thumb/Features114/v4/e6/68/c4/e668c4b4-1141-1efd-aa7c-84ab5e5dcd32/pr_source.png/1200x675.jpg",
-      "https://is1-ssl.mzstatic.com/image/thumb/Features114/v4/e6/68/c4/e668c4b4-1141-1efd-aa7c-84ab5e5dcd32/pr_source.png/1200x675.jpg"
+      "https://i.pinimg.com/1200x/78/9b/65/789b65d93a011fbde5f7ce2f24f3eb4a.jpg",
+      "https://i.pinimg.com/1200x/3c/48/07/3c48079970359e761b10e797920c06bb.jpg"
     ]
   },
   {
@@ -82,8 +82,7 @@ const profiles = [
     ],
     "description": "фото в лс\nДам тебе то, что не сможет ни один холостяк\nЗнаю чего хочу, какую и зачем",
     "photos": [
-      "https://is1-ssl.mzstatic.com/image/thumb/Features114/v4/e6/68/c4/e668c4b4-1141-1efd-aa7c-84ab5e5dcd32/pr_source.png/1200x675.jpg",
-      "https://is1-ssl.mzstatic.com/image/thumb/Features114/v4/e6/68/c4/e668c4b4-1141-1efd-aa7c-84ab5e5dcd32/pr_source.png/1200x675.jpg"
+      "https://i.pinimg.com/1200x/90/d0/cb/90d0cb62554abcbbb3cc1603e3574ca6.jpg"
     ]
   },
   {
@@ -96,8 +95,7 @@ const profiles = [
     ],
     "description": "Учусь, работаю, хожу в зальчик. Люблю футбол, теннис, книги, игры, сериалы. На серьезное не зарекаюсь, но всякое бывает)",
     "photos": [
-      "https://is1-ssl.mzstatic.com/image/thumb/Features114/v4/e6/68/c4/e668c4b4-1141-1efd-aa7c-84ab5e5dcd32/pr_source.png/1200x675.jpg",
-      "https://is1-ssl.mzstatic.com/image/thumb/Features114/v4/e6/68/c4/e668c4b4-1141-1efd-aa7c-84ab5e5dcd32/pr_source.png/1200x675.jpg"
+      "https://i.pinimg.com/736x/37/37/6a/37376a5600ec96333ca855d183583ac0.jpg"
     ]
   },
   {
