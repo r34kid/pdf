@@ -1,815 +1,202 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Редактор профилей Tinder</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-    }
-
-    body {
-      background: #121212;
-      color: white;
-      padding: 20px;
-      min-height: 100vh;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    h1 {
-      margin-bottom: 30px;
-      color: #1e90ff;
-    }
-
-    .github-settings {
-      background: #1e1e1e;
-      border-radius: 15px;
-      padding: 20px;
-      margin-bottom: 30px;
-      border: 1px solid #333;
-    }
-
-    .github-settings h2 {
-      color: #1e90ff;
-      margin-bottom: 15px;
-      font-size: 1.2em;
-    }
-
-    .settings-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 15px;
-      margin-bottom: 15px;
-    }
-
-    .token-input {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-    }
-
-    .token-input input {
-      flex: 1;
-      padding: 10px;
-      background: #2a2a2a;
-      border: 1px solid #444;
-      border-radius: 8px;
-      color: white;
-      font-family: monospace;
-    }
-
-    .token-status {
-      padding: 5px 10px;
-      border-radius: 20px;
-      font-size: 0.9em;
-    }
-
-    .status-valid {
-      background: #00c851;
-      color: white;
-    }
-
-    .status-invalid {
-      background: #ff4444;
-      color: white;
-    }
-
-    .profiles-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-      gap: 20px;
-      margin-bottom: 30px;
-    }
-
-    .profile-card {
-      background: #1e1e1e;
-      border-radius: 15px;
-      padding: 20px;
-      border: 1px solid #333;
-    }
-
-    .profile-card h3 {
-      margin-bottom: 15px;
-      color: #1e90ff;
-    }
-
-    .form-group {
-      margin-bottom: 15px;
-    }
-
-    label {
-      display: block;
-      margin-bottom: 5px;
-      color: #888;
-      font-size: 0.9em;
-    }
-
-    input, textarea {
-      width: 100%;
-      padding: 10px;
-      background: #2a2a2a;
-      border: 1px solid #444;
-      border-radius: 8px;
-      color: white;
-      font-size: 1em;
-    }
-
-    input:focus, textarea:focus {
-      outline: none;
-      border-color: #1e90ff;
-    }
-
-    .tags-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin: 10px 0;
-    }
-
-    .tag {
-      background: #2a2a2a;
-      padding: 5px 12px;
-      border-radius: 20px;
-      font-size: 0.9em;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-    }
-
-    .tag button {
-      background: none;
-      border: none;
-      color: #ff4444;
-      cursor: pointer;
-      font-size: 1.2em;
-      padding: 0 5px;
-    }
-
-    .add-tag {
-      display: flex;
-      gap: 10px;
-      margin-top: 10px;
-    }
-
-    .add-tag input {
-      flex: 1;
-    }
-
-    .add-tag button {
-      padding: 10px 20px;
-      background: #2a2a2a;
-      border: 1px solid #444;
-      border-radius: 8px;
-      color: white;
-      cursor: pointer;
-    }
-
-    .add-tag button:hover {
-      background: #3a3a3a;
-    }
-
-    .photos-list {
-      margin: 10px 0;
-    }
-
-    .photo-item {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 10px;
-      align-items: center;
-    }
-
-    .photo-item input {
-      flex: 1;
-    }
-
-    .photo-item button {
-      padding: 5px 10px;
-      background: #ff4444;
-      border: none;
-      border-radius: 5px;
-      color: white;
-      cursor: pointer;
-    }
-
-    .add-photo {
-      display: flex;
-      gap: 10px;
-      margin-top: 10px;
-    }
-
-    .add-photo input {
-      flex: 1;
-    }
-
-    .add-photo button {
-      padding: 10px 20px;
-      background: #2a2a2a;
-      border: 1px solid #444;
-      border-radius: 8px;
-      color: white;
-      cursor: pointer;
-    }
-
-    .button-group {
-      display: flex;
-      gap: 10px;
-      margin-top: 20px;
-      justify-content: flex-end;
-    }
-
-    .btn {
-      padding: 10px 20px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 1em;
-      transition: opacity 0.2s;
-    }
-
-    .btn:hover {
-      opacity: 0.8;
-    }
-
-    .btn-primary {
-      background: #1e90ff;
-      color: white;
-    }
-
-    .btn-danger {
-      background: #ff4444;
-      color: white;
-    }
-
-    .btn-success {
-      background: #00c851;
-      color: white;
-    }
-
-    .btn-secondary {
-      background: #2a2a2a;
-      color: white;
-    }
-
-    .global-actions {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 30px;
-      justify-content: flex-end;
-      flex-wrap: wrap;
-    }
-
-    .preview-link {
-      color: #1e90ff;
-      text-decoration: none;
-      margin-left: 20px;
-    }
-
-    .preview-link:hover {
-      text-decoration: underline;
-    }
-
-    .message {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      padding: 15px 25px;
-      border-radius: 8px;
-      animation: slideIn 0.3s ease;
-      z-index: 1000;
-    }
-
-    .message-success {
-      background: #00c851;
-      color: white;
-    }
-
-    .message-error {
-      background: #ff4444;
-      color: white;
-    }
-
-    .message-info {
-      background: #1e90ff;
-      color: white;
-    }
-
-    @keyframes slideIn {
-      from {
-        transform: translateX(100%);
-        opacity: 0;
-      }
-      to {
-        transform: translateX(0);
-        opacity: 1;
-      }
-    }
-
-    .save-progress {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(0,0,0,0.7);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 2000;
-    }
-
-    .save-progress.hidden {
-      display: none;
-    }
-
-    .spinner {
-      width: 50px;
-      height: 50px;
-      border: 3px solid #333;
-      border-top-color: #1e90ff;
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
-    }
-
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <h1>Редактор профилей Tinder</h1>
-    
-    <!-- Настройки GitHub -->
-    <div class="github-settings">
-      <h2>⚙️ Настройки GitHub (сохраняются в браузере)</h2>
-      <div class="settings-grid">
-        <div class="form-group">
-          <label>Владелец репозитория (username)</label>
-          <input type="text" id="github-owner" placeholder="например: yourusername">
-        </div>
-        <div class="form-group">
-          <label>Название репозитория</label>
-          <input type="text" id="github-repo" placeholder="например: tinder-clone">
-        </div>
-        <div class="form-group">
-          <label>Путь к файлу</label>
-          <input type="text" id="github-path" value="profiles.js" placeholder="profiles.js">
-        </div>
-      </div>
-      <div class="form-group">
-        <label>GitHub Personal Access Token</label>
-        <div class="token-input">
-          <input type="password" id="github-token" placeholder="ghp_xxxxxxxxxxxx">
-          <span id="token-status" class="token-status status-invalid">🔴 Не проверен</span>
-        </div>
-        <small style="color: #888; display: block; margin-top: 5px;">
-          Токен нужен с правами: repo (полный доступ к репозиториям). 
-          Создать можно <a href="https://github.com/settings/tokens" target="_blank" style="color: #1e90ff;">здесь</a>
-        </small>
-      </div>
-      <div style="display: flex; gap: 10px; justify-content: flex-end;">
-        <button class="btn btn-secondary" onclick="testGitHubConnection()">🔌 Проверить подключение</button>
-        <button class="btn btn-primary" onclick="saveSettings()">💾 Сохранить настройки</button>
-      </div>
-    </div>
-
-    <div class="global-actions">
-      <button class="btn btn-success" onclick="addNewProfile()">+ Добавить профиль</button>
-      <button class="btn btn-primary" onclick="saveToGitHub()">⬆️ Сохранить в GitHub</button>
-      <button class="btn btn-secondary" onclick="downloadBackup()">📥 Скачать резервную копию</button>
-      <a href="index.html" target="_blank" class="preview-link">👁 Предпросмотр</a>
-    </div>
-
-    <div id="profiles-list" class="profiles-list"></div>
-  </div>
-
-  <!-- Индикатор загрузки -->
-  <div id="save-progress" class="save-progress hidden">
-    <div class="spinner"></div>
-  </div>
-
-  <script src="profiles.js"></script>
-  <script>
-    // Копия данных для редактирования
-    let workingProfiles = JSON.parse(JSON.stringify(profiles));
-    
-    // Настройки GitHub
-    let githubSettings = {
-      owner: '',
-      repo: '',
-      path: 'profiles.js',
-      token: ''
-    };
-
-    // Загружаем сохраненные настройки
-    function loadSettings() {
-      const saved = localStorage.getItem('githubSettings');
-      if (saved) {
-        try {
-          githubSettings = JSON.parse(saved);
-          document.getElementById('github-owner').value = githubSettings.owner || '';
-          document.getElementById('github-repo').value = githubSettings.repo || '';
-          document.getElementById('github-path').value = githubSettings.path || 'profiles.js';
-          document.getElementById('github-token').value = githubSettings.token || '';
-        } catch (e) {
-          console.error('Ошибка загрузки настроек:', e);
-        }
-      }
-    }
-
-    // Сохраняем настройки
-    window.saveSettings = function() {
-      githubSettings = {
-        owner: document.getElementById('github-owner').value.trim(),
-        repo: document.getElementById('github-repo').value.trim(),
-        path: document.getElementById('github-path').value.trim() || 'profiles.js',
-        token: document.getElementById('github-token').value.trim()
-      };
-      
-      localStorage.setItem('githubSettings', JSON.stringify(githubSettings));
-      showMessage('Настройки сохранены', 'success');
-    };
-
-    // Проверка подключения к GitHub
-    window.testGitHubConnection = async function() {
-      const token = document.getElementById('github-token').value.trim();
-      const owner = document.getElementById('github-owner').value.trim();
-      const repo = document.getElementById('github-repo').value.trim();
-      
-      if (!token || !owner || !repo) {
-        showMessage('Заполните все поля настроек', 'error');
-        return;
-      }
-
-      const statusEl = document.getElementById('token-status');
-      statusEl.textContent = '⏳ Проверка...';
-      statusEl.className = 'token-status';
-
-      try {
-        const response = await fetch(`https://api.github.com/repos/${owner}/${repo}`, {
-          headers: {
-            'Authorization': `token ${token}`,
-            'Accept': 'application/vnd.github.v3+json'
-          }
-        });
-
-        if (response.ok) {
-          statusEl.textContent = '✅ Подключение работает';
-          statusEl.className = 'token-status status-valid';
-          showMessage('Подключение к GitHub успешно!', 'success');
-        } else {
-          const error = await response.json();
-          statusEl.textContent = '❌ Ошибка подключения';
-          statusEl.className = 'token-status status-invalid';
-          showMessage(`Ошибка: ${error.message}`, 'error');
-        }
-      } catch (error) {
-        statusEl.textContent = '❌ Ошибка сети';
-        statusEl.className = 'token-status status-invalid';
-        showMessage('Ошибка сети при проверке подключения', 'error');
-      }
-    };
-
-    // Получение текущего файла из GitHub (для получения SHA)
-    async function getCurrentFile() {
-      const settings = githubSettings;
-      
-      const response = await fetch(
-        `https://api.github.com/repos/${settings.owner}/${settings.repo}/contents/${settings.path}`,
-        {
-          headers: {
-            'Authorization': `token ${settings.token}`,
-            'Accept': 'application/vnd.github.v3+json'
-          }
-        }
-      );
-
-      if (!response.ok) {
-        if (response.status === 404) {
-          return null; // Файл не существует
-        }
-        throw new Error(`GitHub API error: ${response.status}`);
-      }
-
-      return await response.json();
-    }
-
-    // Сохранение в GitHub
-    window.saveToGitHub = async function() {
-      // Обновляем настройки из полей ввода
-      githubSettings = {
-        owner: document.getElementById('github-owner').value.trim(),
-        repo: document.getElementById('github-repo').value.trim(),
-        path: document.getElementById('github-path').value.trim() || 'profiles.js',
-        token: document.getElementById('github-token').value.trim()
-      };
-
-      // Проверяем заполнение
-      if (!githubSettings.owner || !githubSettings.repo || !githubSettings.token) {
-        showMessage('Заполните настройки GitHub', 'error');
-        return;
-      }
-
-      // Показываем индикатор загрузки
-      document.getElementById('save-progress').classList.remove('hidden');
-
-      try {
-        // Формируем содержимое файла
-        const content = `// profiles.js - общий файл с данными профилей
-// Автоматически сгенерировано редактором ${new Date().toLocaleString()}
-const profiles = ${JSON.stringify(workingProfiles, null, 2)};
+// profiles.js - общий файл с данными профилей
+// Автоматически сгенерировано редактором 26.02.2026, 17:05:32
+const profiles = [
+  {
+    "name": "Николай, 26",
+    "distance": "18 км от вас",
+    "tags": [
+      "MACAN",
+      "Jah Khalib",
+      "GUF",
+      "MiyaGi"
+    ],
+    "description": "Ищу HR или Стрелец/Весы/Овен\n\nЦеню искренность, чувство юмора, умение наслаждаться простыми вещами",
+    "photos": [
+      "https://avatars.mds.yandex.net/i?id=54020f314bf0b160580083a7fc3062dd_l-5885384-images-thumbs&n=13"
+    ],
+    "is_match": false
+  },
+  {
+    "name": "Гоша Куценка, 69",
+    "distance": "1 км от вас",
+    "tags": [
+      "Сексоголик",
+      "Трудяга"
+    ],
+    "description": "Люблю кино и секс",
+    "photos": [
+      "https://is1-ssl.mzstatic.com/image/thumb/Features114/v4/e6/68/c4/e668c4b4-1141-1efd-aa7c-84ab5e5dcd32/pr_source.png/1200x675.jpg",
+      "https://lisa.ru/images/cache/2021/11/22/fit_414_530_false_crop_1027_577_0_37_q90_1345142_b5317d29d04d3342ffbd42770.png"
+    ],
+    "is_match": false
+  },
+  {
+    "name": " Серёга, 19",
+    "distance": "10 км от вас",
+    "tags": [
+      "Работа",
+      "Православие",
+      "Лев",
+      "190 см",
+      "Дружба"
+    ],
+    "description": "",
+    "photos": [
+      "https://i.pinimg.com/736x/b0/9d/40/b09d408e5153007370469031ef9126fe.jpg",
+      "https://i.pinimg.com/1200x/05/ec/a4/05eca4c0292df28cc2b7c4096c284d6e.jpg"
+    ],
+    "is_match": false
+  },
+  {
+    "name": "Иван, 31",
+    "distance": "38 км от вас",
+    "tags": [
+      "Плавание",
+      "Телец",
+      "176 см",
+      "63 кг"
+    ],
+    "description": "ТАРЕЛОЧНИЦЫ МИМО\n\nДевушки ходят по клубам, изменяют, встречаться за деньги мимо.\nИщу девушку ОБЫЧНУЮ за спорт, за доверие, без вредных привычек, готова к семье, не ходит по клубам.\nЯ 176 см, 63 кг, атлет, спортсмен, по клубам не хожу",
+    "photos": [
+      "https://i.pinimg.com/736x/83/fa/c7/83fac76f374d3557ff444065c77cdda5.jpg",
+      "https://i.pinimg.com/736x/78/65/7e/78657e1dd607854e340e9f627f3fb05a.jpg"
+    ],
+    "is_match": false
+  },
+  {
+    "name": "Роман, 34",
+    "distance": "55 км от вас",
+    "tags": [
+      "Рак",
+      "Держу форму",
+      "Не курю"
+    ],
+    "description": "фото в лс\nДам тебе то, что не сможет ни один холостяк\nЗнаю чего хочу, какую и зачем",
+    "photos": [
+      "https://i.pinimg.com/1200x/90/d0/cb/90d0cb62554abcbbb3cc1603e3574ca6.jpg"
+    ],
+    "is_match": false
+  },
+  {
+    "name": "Леша, 22",
+    "distance": "12 км от вас",
+    "tags": [
+      "Скорпион",
+      "182 см",
+      "Одинок"
+    ],
+    "description": "Учусь, работаю, хожу в зальчик. Люблю футбол, теннис, книги, игры, сериалы. На серьезное не зарекаюсь, но всякое бывает)",
+    "photos": [
+      "https://i.pinimg.com/736x/fd/b8/7b/fdb87b4fadadc6184ccd54c22cc9396b.jpg",
+      "https://i.pinimg.com/736x/9c/c4/eb/9cc4eb61c6c71729a6446b776e60e083.jpg"
+    ],
+    "is_match": true
+  },
+  {
+    "name": "Мирон, 31",
+    "distance": "28 км от вас",
+    "tags": [
+      "образован",
+      "работаю"
+    ],
+    "description": "интелектуальное общение",
+    "photos": [
+      "https://i.pinimg.com/736x/4b/56/c6/4b56c6ab1a38a2167daff9fe9b575379.jpg",
+      "https://i.pinimg.com/736x/a5/71/b8/a571b8b0e6a006c70fab993d631429c2.jpg"
+    ],
+    "is_match": false
+  },
+  {
+    "name": "Даня, 24",
+    "distance": "46 км от вас",
+    "tags": [
+      "Овен",
+      "Православие"
+    ],
+    "description": "Предпочитаю, когда женщина постарше. Способен оплачивать коммунарку и покупать огурцы",
+    "photos": [
+      "https://i.pinimg.com/736x/ab/d3/23/abd3234351ab93cdbf7be51fbcf750d5.jpg",
+      "https://i.pinimg.com/736x/8b/fd/66/8bfd6622ddc43e54e5c3677ccfc99dfc.jpg",
+      "https://i.pinimg.com/736x/ef/43/28/ef4328e3298d24f5305211d90f44ba5e.jpg"
+    ],
+    "is_match": false
+  },
+  {
+    "name": "Никита, 34",
+    "distance": "55 км от вас",
+    "tags": [
+      "эстет",
+      "филантроп",
+      "путешественник"
+    ],
+    "description": "Физическая красота женщины не производит на меня никакого эффекта. Разве только если она сопровождается красотой души, тогда она производит эффект весьма необыкновенный. Она возбуждает во мне желание испытать эту красоту - доступна ли она, или неуязвима. Какой я нахожу ее, такой я ее и оставлю",
+    "photos": [
+      "https://i.pinimg.com/736x/0a/bd/a3/0abda369bc747ea8f8e90b1ac2d7e2c3.jpg",
+      "https://i.pinimg.com/736x/5d/84/88/5d8488e209051ffb84c703b6ddd14def.jpg",
+      "https://i.pinimg.com/736x/2f/b5/c6/2fb5c615e6c3c0b27eb1b0973ebd3267.jpg",
+      "https://i.pinimg.com/736x/da/d1/ae/dad1ae15613b87f1abc4b5f31c877d91.jpg"
+    ],
+    "is_match": false
+  },
+  {
+    "name": "Георгий, 37",
+    "distance": "21 км от вас",
+    "tags": [],
+    "description": "ВСЕХ ПОДРЯД НЕ ЛАЙКАЮ\nкак пойдет диалог имеет значение",
+    "photos": [
+      "https://i.pinimg.com/736x/45/4b/19/454b1918c61307b38908ddf284e47b1b.jpg"
+    ],
+    "is_match": false
+  },
+  {
+    "name": "Макар, 25",
+    "distance": "67 км от вас",
+    "tags": [
+      "скорпион",
+      "асцендент во льве",
+      "доброта",
+      "честность",
+      "стрессоустойчивость"
+    ],
+    "description": "УДИВИ",
+    "photos": [
+      "https://i.pinimg.com/736x/b8/31/56/b831563586773d537d1208f42d14638e.jpg"
+    ],
+    "is_match": false
+  },
+  {
+    "name": "Семен, 32",
+    "distance": "10 км от вас",
+    "tags": [
+      "Футбол",
+      "Квизы",
+      "Активный отдых"
+    ],
+    "description": "Ищу верную подругу для серьезных отношений",
+    "photos": [
+      "https://i.pinimg.com/736x/24/1b/7e/241b7eaa565daf85836d33f47caccae6.jpg"
+    ],
+    "is_match": false
+  },
+  {
+    "name": "Алексей, 36",
+    "distance": "90 км от вас",
+    "tags": [
+      "spotify",
+      "американский футбол",
+      "языки",
+      "путешествия",
+      "AI"
+    ],
+    "description": " Нагенерирую нам прекрасное будущее",
+    "photos": [
+      "https://i.pinimg.com/736x/79/bb/f2/79bbf2abff71aedc141660b73222c720.jpg"
+    ],
+    "is_match": false
+  }
+];
 
 // Делаем данные доступными глобально
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = profiles;
-}`;
-
-        // Кодируем в base64
-        const contentEncoded = btoa(unescape(encodeURIComponent(content)));
-
-        // Получаем текущий файл (нужно для SHA)
-        let sha = null;
-        try {
-          const currentFile = await getCurrentFile();
-          sha = currentFile ? currentFile.sha : null;
-        } catch (e) {
-          console.log('Файл не существует или ошибка получения');
-        }
-
-        // Создаем коммит
-        const commitData = {
-          message: 'Обновление профилей из редактора',
-          content: contentEncoded,
-          branch: 'main'
-        };
-
-        if (sha) {
-          commitData.sha = sha;
-        }
-
-        const response = await fetch(
-          `https://api.github.com/repos/${githubSettings.owner}/${githubSettings.repo}/contents/${githubSettings.path}`,
-          {
-            method: 'PUT',
-            headers: {
-              'Authorization': `token ${githubSettings.token}`,
-              'Accept': 'application/vnd.github.v3+json',
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(commitData)
-          }
-        );
-
-        if (response.ok) {
-          showMessage('✅ Файл успешно сохранен в GitHub!', 'success');
-          
-          // Обновляем статус токена
-          document.getElementById('token-status').textContent = '✅ Сохранено';
-          document.getElementById('token-status').className = 'token-status status-valid';
-        } else {
-          const error = await response.json();
-          throw new Error(error.message || 'Ошибка при сохранении');
-        }
-      } catch (error) {
-        console.error('GitHub save error:', error);
-        showMessage(`❌ Ошибка сохранения: ${error.message}`, 'error');
-      } finally {
-        document.getElementById('save-progress').classList.add('hidden');
-      }
-    };
-
-    // Скачать резервную копию
-    window.downloadBackup = function() {
-      const content = `// profiles.js - резервная копия
-const profiles = ${JSON.stringify(workingProfiles, null, 2)};
-
-if (typeof module !== 'undefined' && module.exports) {
-  module.exports = profiles;
-}`;
-
-      const blob = new Blob([content], { type: 'text/javascript' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = `profiles-backup-${new Date().toISOString().slice(0,10)}.js`;
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
-      
-      showMessage('📥 Резервная копия скачана', 'success');
-    };
-
-    function showMessage(text, type) {
-      const msg = document.createElement('div');
-      msg.className = `message message-${type}`;
-      msg.textContent = text;
-      document.body.appendChild(msg);
-      
-      setTimeout(() => {
-        msg.remove();
-      }, 3000);
-    }
-
-    function renderEditor() {
-      const container = document.getElementById('profiles-list');
-      container.innerHTML = '';
-
-      workingProfiles.forEach((profile, index) => {
-        const profileCard = createProfileEditor(profile, index);
-        container.appendChild(profileCard);
-      });
-    }
-
-    function createProfileEditor(profile, index) {
-      const card = document.createElement('div');
-      card.className = 'profile-card';
-      card.dataset.index = index;
-
-      // Заголовок
-      const title = document.createElement('h3');
-      title.textContent = `Профиль ${index + 1}`;
-      card.appendChild(title);
-
-      // Имя и возраст
-      const nameGroup = document.createElement('div');
-      nameGroup.className = 'form-group';
-      nameGroup.innerHTML = `
-        <label>Имя и возраст (например: "Андрей, 55")</label>
-        <input type="text" value="${profile.name.replace(/"/g, '&quot;')}" onchange="updateProfile(${index}, 'name', this.value)">
-      `;
-      card.appendChild(nameGroup);
-
-      // Дистанция
-      const distanceGroup = document.createElement('div');
-      distanceGroup.className = 'form-group';
-      distanceGroup.innerHTML = `
-        <label>Дистанция (например: "12 км от вас")</label>
-        <input type="text" value="${profile.distance.replace(/"/g, '&quot;')}" onchange="updateProfile(${index}, 'distance', this.value)">
-      `;
-      card.appendChild(distanceGroup);
-
-      // Описание
-      const descGroup = document.createElement('div');
-      descGroup.className = 'form-group';
-      descGroup.innerHTML = `
-        <label>Описание</label>
-        <textarea rows="3" onchange="updateProfile(${index}, 'description', this.value)">${profile.description.replace(/"/g, '&quot;')}</textarea>
-      `;
-      card.appendChild(descGroup);
-
-      // Теги
-      const tagsGroup = document.createElement('div');
-      tagsGroup.className = 'form-group';
-      tagsGroup.innerHTML = '<label>Теги</label>';
-      
-      const tagsContainer = document.createElement('div');
-      tagsContainer.className = 'tags-container';
-      tagsContainer.id = `tags-${index}`;
-      
-      profile.tags.forEach((tag, tagIndex) => {
-        const tagEl = document.createElement('span');
-        tagEl.className = 'tag';
-        tagEl.innerHTML = `
-          ${tag.replace(/"/g, '&quot;')}
-          <button onclick="removeTag(${index}, ${tagIndex})">×</button>
-        `;
-        tagsContainer.appendChild(tagEl);
-      });
-      
-      tagsGroup.appendChild(tagsContainer);
-
-      // Добавление нового тега
-      const addTagDiv = document.createElement('div');
-      addTagDiv.className = 'add-tag';
-      addTagDiv.innerHTML = `
-        <input type="text" id="new-tag-${index}" placeholder="Новый тег">
-        <button onclick="addTag(${index})">Добавить</button>
-      `;
-      tagsGroup.appendChild(addTagDiv);
-      card.appendChild(tagsGroup);
-
-      // Фото
-      const photosGroup = document.createElement('div');
-      photosGroup.className = 'form-group';
-      photosGroup.innerHTML = '<label>Фото (URL)</label>';
-      
-      const photosList = document.createElement('div');
-      photosList.className = 'photos-list';
-      photosList.id = `photos-${index}`;
-      
-      profile.photos.forEach((photo, photoIndex) => {
-        const photoItem = document.createElement('div');
-        photoItem.className = 'photo-item';
-        photoItem.innerHTML = `
-          <input type="text" value="${photo.replace(/"/g, '&quot;')}" onchange="updatePhoto(${index}, ${photoIndex}, this.value)">
-          <button onclick="removePhoto(${index}, ${photoIndex})">×</button>
-        `;
-        photosList.appendChild(photoItem);
-      });
-      
-      photosGroup.appendChild(photosList);
-
-      // Добавление нового фото
-      const addPhotoDiv = document.createElement('div');
-      addPhotoDiv.className = 'add-photo';
-      addPhotoDiv.innerHTML = `
-        <input type="text" id="new-photo-${index}" placeholder="URL нового фото">
-        <button onclick="addPhoto(${index})">Добавить</button>
-      `;
-      photosGroup.appendChild(addPhotoDiv);
-      card.appendChild(photosGroup);
-
-      // Кнопки управления профилем
-      const buttonGroup = document.createElement('div');
-      buttonGroup.className = 'button-group';
-      buttonGroup.innerHTML = `
-        <button class="btn btn-danger" onclick="deleteProfile(${index})">Удалить профиль</button>
-      `;
-      card.appendChild(buttonGroup);
-
-      return card;
-    }
-
-    // Функции обновления
-    window.updateProfile = function(index, field, value) {
-      workingProfiles[index][field] = value;
-    };
-
-    window.updatePhoto = function(profileIndex, photoIndex, value) {
-      workingProfiles[profileIndex].photos[photoIndex] = value;
-    };
-
-    window.addTag = function(profileIndex) {
-      const input = document.getElementById(`new-tag-${profileIndex}`);
-      const newTag = input.value.trim();
-      
-      if (newTag) {
-        workingProfiles[profileIndex].tags.push(newTag);
-        input.value = '';
-        renderEditor();
-      }
-    };
-
-    window.removeTag = function(profileIndex, tagIndex) {
-      workingProfiles[profileIndex].tags.splice(tagIndex, 1);
-      renderEditor();
-    };
-
-    window.addPhoto = function(profileIndex) {
-      const input = document.getElementById(`new-photo-${profileIndex}`);
-      const newPhoto = input.value.trim();
-      
-      if (newPhoto) {
-        workingProfiles[profileIndex].photos.push(newPhoto);
-        input.value = '';
-        renderEditor();
-      }
-    };
-
-    window.removePhoto = function(profileIndex, photoIndex) {
-      if (workingProfiles[profileIndex].photos.length > 1) {
-        workingProfiles[profileIndex].photos.splice(photoIndex, 1);
-      } else {
-        alert('Должно быть хотя бы одно фото!');
-      }
-      renderEditor();
-    };
-
-    window.addNewProfile = function() {
-      workingProfiles.push({
-        name: "Новый профиль, 25",
-        distance: "10 км от вас",
-        tags: ["Тег 1", "Тег 2"],
-        description: "Описание нового профиля",
-        photos: ["https://picsum.photos/500/900?random=100"]
-      });
-      renderEditor();
-    };
-
-    window.deleteProfile = function(index) {
-      if (workingProfiles.length > 1) {
-        if (confirm('Удалить этот профиль?')) {
-          workingProfiles.splice(index, 1);
-          renderEditor();
-        }
-      } else {
-        alert('Должен остаться хотя бы один профиль!');
-      }
-    };
-
-    // Инициализация
-    loadSettings();
-    renderEditor();
-  </script>
-</body>
-</html>
+}
