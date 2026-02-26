@@ -1,5 +1,5 @@
 // profiles.js - общий файл с данными профилей
-// Автоматически сгенерировано редактором 26.02.2026, 17:05:32
+// Автоматически сгенерировано редактором 27.02.2026, 00:33:43
 const profiles = [
   {
     "name": "Николай, 26",
@@ -28,7 +28,7 @@ const profiles = [
       "https://is1-ssl.mzstatic.com/image/thumb/Features114/v4/e6/68/c4/e668c4b4-1141-1efd-aa7c-84ab5e5dcd32/pr_source.png/1200x675.jpg",
       "https://lisa.ru/images/cache/2021/11/22/fit_414_530_false_crop_1027_577_0_37_q90_1345142_b5317d29d04d3342ffbd42770.png"
     ],
-    "is_match": false
+    "is_match": true
   },
   {
     "name": " Серёга, 19",
