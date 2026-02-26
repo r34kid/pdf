@@ -14,7 +14,7 @@ const profiles = [
     "photos": [
       "https://avatars.mds.yandex.net/i?id=54020f314bf0b160580083a7fc3062dd_l-5885384-images-thumbs&n=13"
     ],
-    is_match: false
+    "is_match": false
   },
   {
     "name": "Гоша Куценка, 69",
@@ -28,7 +28,7 @@ const profiles = [
       "https://is1-ssl.mzstatic.com/image/thumb/Features114/v4/e6/68/c4/e668c4b4-1141-1efd-aa7c-84ab5e5dcd32/pr_source.png/1200x675.jpg",
       "https://lisa.ru/images/cache/2021/11/22/fit_414_530_false_crop_1027_577_0_37_q90_1345142_b5317d29d04d3342ffbd42770.png"
     ],
-    is_match: false
+    "is_match": false
   },
   {
     "name": " Серёга, 19",
@@ -45,7 +45,7 @@ const profiles = [
       "https://i.pinimg.com/736x/b0/9d/40/b09d408e5153007370469031ef9126fe.jpg",
       "https://i.pinimg.com/1200x/05/ec/a4/05eca4c0292df28cc2b7c4096c284d6e.jpg"
     ],
-    is_match: false
+    "is_match": false
   },
   {
     "name": "Иван, 31",
@@ -61,7 +61,7 @@ const profiles = [
       "https://i.pinimg.com/736x/83/fa/c7/83fac76f374d3557ff444065c77cdda5.jpg",
       "https://i.pinimg.com/736x/78/65/7e/78657e1dd607854e340e9f627f3fb05a.jpg"
     ],
-    is_match: false
+    "is_match": false
   },
   {
     "name": "Роман, 34",
@@ -75,7 +75,7 @@ const profiles = [
     "photos": [
       "https://i.pinimg.com/1200x/90/d0/cb/90d0cb62554abcbbb3cc1603e3574ca6.jpg"
     ],
-    is_match: false
+    "is_match": false
   },
   {
     "name": "Леша, 22",
@@ -90,7 +90,7 @@ const profiles = [
       "https://i.pinimg.com/736x/fd/b8/7b/fdb87b4fadadc6184ccd54c22cc9396b.jpg",
       "https://i.pinimg.com/736x/9c/c4/eb/9cc4eb61c6c71729a6446b776e60e083.jpg"
     ],
-    is_match: true
+    "is_match": true
   },
   {
     "name": "Мирон, 31",
@@ -104,7 +104,7 @@ const profiles = [
       "https://i.pinimg.com/736x/4b/56/c6/4b56c6ab1a38a2167daff9fe9b575379.jpg",
       "https://i.pinimg.com/736x/a5/71/b8/a571b8b0e6a006c70fab993d631429c2.jpg"
     ],
-    is_match: false
+    "is_match": false
   },
   {
     "name": "Даня, 24",
@@ -119,7 +119,7 @@ const profiles = [
       "https://i.pinimg.com/736x/8b/fd/66/8bfd6622ddc43e54e5c3677ccfc99dfc.jpg",
       "https://i.pinimg.com/736x/ef/43/28/ef4328e3298d24f5305211d90f44ba5e.jpg"
     ],
-    is_match: false
+    "is_match": false
   },
   {
     "name": "Никита, 34",
@@ -136,7 +136,7 @@ const profiles = [
       "https://i.pinimg.com/736x/2f/b5/c6/2fb5c615e6c3c0b27eb1b0973ebd3267.jpg",
       "https://i.pinimg.com/736x/da/d1/ae/dad1ae15613b87f1abc4b5f31c877d91.jpg"
     ],
-    is_match: false
+    "is_match": false
   },
   {
     "name": "Георгий, 37",
@@ -146,7 +146,7 @@ const profiles = [
     "photos": [
       "https://i.pinimg.com/736x/45/4b/19/454b1918c61307b38908ddf284e47b1b.jpg"
     ],
-    is_match: false
+    "is_match": false
   },
   {
     "name": "Макар, 25",
@@ -162,7 +162,7 @@ const profiles = [
     "photos": [
       "https://i.pinimg.com/736x/b8/31/56/b831563586773d537d1208f42d14638e.jpg"
     ],
-    is_match: false
+    "is_match": false
   },
   {
     "name": "Семен, 32",
@@ -176,7 +176,7 @@ const profiles = [
     "photos": [
       "https://i.pinimg.com/736x/24/1b/7e/241b7eaa565daf85836d33f47caccae6.jpg"
     ],
-    is_match: false
+    "is_match": false
   },
   {
     "name": "Алексей, 36",
@@ -192,7 +192,7 @@ const profiles = [
     "photos": [
       "https://i.pinimg.com/736x/79/bb/f2/79bbf2abff71aedc141660b73222c720.jpg"
     ],
-    is_match: false
+    "is_match": false
   }
 ];
 
