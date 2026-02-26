@@ -1,5 +1,5 @@
 // profiles.js - общий файл с данными профилей
-// Автоматически сгенерировано редактором 26.02.2026, 15:38:36
+// Автоматически сгенерировано редактором 26.02.2026, 17:05:32
 const profiles = [
   {
     "name": "Николай, 26",
@@ -95,8 +95,8 @@ const profiles = [
     ],
     "description": "интелектуальное общение",
     "photos": [
-      "https://i.pinimg.com/1200x/93/cb/b0/93cbb0777fb307afebd14b0520b5b444.jpg",
-      "https://i.pinimg.com/736x/16/c2/04/16c2043208f9c92bccad499d59c56173.jpg"
+      "https://i.pinimg.com/736x/4b/56/c6/4b56c6ab1a38a2167daff9fe9b575379.jpg",
+      "https://i.pinimg.com/736x/a5/71/b8/a571b8b0e6a006c70fab993d631429c2.jpg"
     ]
   },
   {
@@ -123,7 +123,10 @@ const profiles = [
     ],
     "description": "Физическая красота женщины не производит на меня никакого эффекта. Разве только если она сопровождается красотой души, тогда она производит эффект весьма необыкновенный. Она возбуждает во мне желание испытать эту красоту - доступна ли она, или неуязвима. Какой я нахожу ее, такой я ее и оставлю",
     "photos": [
-      "https://i.pinimg.com/1200x/b3/e1/d2/b3e1d2aacb27298d642c8b71566176cc.jpg"
+      "https://i.pinimg.com/736x/0a/bd/a3/0abda369bc747ea8f8e90b1ac2d7e2c3.jpg",
+      "https://i.pinimg.com/736x/5d/84/88/5d8488e209051ffb84c703b6ddd14def.jpg",
+      "https://i.pinimg.com/736x/2f/b5/c6/2fb5c615e6c3c0b27eb1b0973ebd3267.jpg",
+      "https://i.pinimg.com/736x/da/d1/ae/dad1ae15613b87f1abc4b5f31c877d91.jpg"
     ]
   },
   {
