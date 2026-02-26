@@ -1,5 +1,5 @@
 // profiles.js - общий файл с данными профилей
-// Автоматически сгенерировано редактором 26.02.2026, 15:27:33
+// Автоматически сгенерировано редактором 26.02.2026, 15:38:36
 const profiles = [
   {
     "name": "Николай, 26",
@@ -55,8 +55,8 @@ const profiles = [
     ],
     "description": "ТАРЕЛОЧНИЦЫ МИМО\n\nДевушки ходят по клубам, изменяют, встречаться за деньги мимо.\nИщу девушку ОБЫЧНУЮ за спорт, за доверие, без вредных привычек, готова к семье, не ходит по клубам.\nЯ 176 см, 63 кг, атлет, спортсмен, по клубам не хожу",
     "photos": [
-      "https://i.pinimg.com/1200x/78/9b/65/789b65d93a011fbde5f7ce2f24f3eb4a.jpg",
-      "https://i.pinimg.com/1200x/3c/48/07/3c48079970359e761b10e797920c06bb.jpg"
+      "https://i.pinimg.com/736x/83/fa/c7/83fac76f374d3557ff444065c77cdda5.jpg",
+      "https://i.pinimg.com/736x/78/65/7e/78657e1dd607854e340e9f627f3fb05a.jpg"
     ]
   },
   {
@@ -82,7 +82,8 @@ const profiles = [
     ],
     "description": "Учусь, работаю, хожу в зальчик. Люблю футбол, теннис, книги, игры, сериалы. На серьезное не зарекаюсь, но всякое бывает)",
     "photos": [
-      "https://i.pinimg.com/736x/37/37/6a/37376a5600ec96333ca855d183583ac0.jpg"
+      "https://i.pinimg.com/736x/fd/b8/7b/fdb87b4fadadc6184ccd54c22cc9396b.jpg",
+      "https://i.pinimg.com/736x/9c/c4/eb/9cc4eb61c6c71729a6446b776e60e083.jpg"
     ]
   },
   {
@@ -99,7 +100,7 @@ const profiles = [
     ]
   },
   {
-    "name": "Даня, 20",
+    "name": "Даня, 24",
     "distance": "46 км от вас",
     "tags": [
       "Овен",
@@ -107,11 +108,13 @@ const profiles = [
     ],
     "description": "Предпочитаю, когда женщина постарше. Способен оплачивать коммунарку и покупать огурцы",
     "photos": [
-      "https://i.pinimg.com/736x/12/1b/ba/121bba3b1e8f4d6e70907f268395f3ac.jpg"
+      "https://i.pinimg.com/736x/ab/d3/23/abd3234351ab93cdbf7be51fbcf750d5.jpg",
+      "https://i.pinimg.com/736x/8b/fd/66/8bfd6622ddc43e54e5c3677ccfc99dfc.jpg",
+      "https://i.pinimg.com/736x/ef/43/28/ef4328e3298d24f5305211d90f44ba5e.jpg"
     ]
   },
   {
-    "name": "Никита, 24",
+    "name": "Никита, 34",
     "distance": "55 км от вас",
     "tags": [
       "эстет",
@@ -158,6 +161,21 @@ const profiles = [
     "description": "Ищу верную подругу для серьезных отношений",
     "photos": [
       "https://i.pinimg.com/736x/24/1b/7e/241b7eaa565daf85836d33f47caccae6.jpg"
+    ]
+  },
+  {
+    "name": "Алексей, 36",
+    "distance": "90 км от вас",
+    "tags": [
+      "spotify",
+      "американский футбол",
+      "языки",
+      "путешествия",
+      "AI"
+    ],
+    "description": " Нагенерирую нам прекрасное будущее",
+    "photos": [
+      "https://i.pinimg.com/736x/79/bb/f2/79bbf2abff71aedc141660b73222c720.jpg"
     ]
   }
 ];
