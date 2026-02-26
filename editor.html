@@ -630,120 +630,135 @@ if (typeof module !== 'undefined' && module.exports) {
       });
     }
 
-    function createProfileEditor(profile, index) {
-      const card = document.createElement('div');
-      card.className = 'profile-card';
-      card.dataset.index = index;
-
-      // Заголовок
-      const title = document.createElement('h3');
-      title.textContent = `Профиль ${index + 1}`;
-      card.appendChild(title);
-
-      // Имя и возраст
-      const nameGroup = document.createElement('div');
-      nameGroup.className = 'form-group';
-      nameGroup.innerHTML = `
-        <label>Имя и возраст (например: "Андрей, 55")</label>
-        <input type="text" value="${profile.name.replace(/"/g, '&quot;')}" onchange="updateProfile(${index}, 'name', this.value)">
+  function createProfileEditor(profile, index) {
+    const card = document.createElement('div');
+    card.className = 'profile-card';
+    card.dataset.index = index;
+  
+    // Заголовок
+    const title = document.createElement('h3');
+    title.textContent = `Профиль ${index + 1}`;
+    card.appendChild(title);
+  
+    // Имя и возраст
+    const nameGroup = document.createElement('div');
+    nameGroup.className = 'form-group';
+    nameGroup.innerHTML = `
+      <label>Имя и возраст (например: "Андрей, 55")</label>
+      <input type="text" value="${profile.name.replace(/"/g, '&quot;')}" onchange="updateProfile(${index}, 'name', this.value)">
+    `;
+    card.appendChild(nameGroup);
+  
+    // Дистанция
+    const distanceGroup = document.createElement('div');
+    distanceGroup.className = 'form-group';
+    distanceGroup.innerHTML = `
+      <label>Дистанция (например: "12 км от вас")</label>
+      <input type="text" value="${profile.distance.replace(/"/g, '&quot;')}" onchange="updateProfile(${index}, 'distance', this.value)">
+    `;
+    card.appendChild(distanceGroup);
+  
+    // Описание
+    const descGroup = document.createElement('div');
+    descGroup.className = 'form-group';
+    descGroup.innerHTML = `
+      <label>Описание</label>
+      <textarea rows="3" onchange="updateProfile(${index}, 'description', this.value)">${profile.description.replace(/"/g, '&quot;')}</textarea>
+    `;
+    card.appendChild(descGroup);
+  
+    // НОВОЕ: Чекбокс для is_match
+    const matchGroup = document.createElement('div');
+    matchGroup.className = 'form-group';
+    matchGroup.innerHTML = `
+      <label style="display: flex; align-items: center; gap: 10px;">
+        <input type="checkbox" ${profile.is_match ? 'checked' : ''} onchange="updateProfile(${index}, 'is_match', this.checked)">
+        <span style="color: #1e90ff;">❤️ Взаимный интерес (мэтч)</span>
+      </label>
+    `;
+    card.appendChild(matchGroup);
+  
+    // Теги
+    const tagsGroup = document.createElement('div');
+    tagsGroup.className = 'form-group';
+    tagsGroup.innerHTML = '<label>Теги</label>';
+    
+    const tagsContainer = document.createElement('div');
+    tagsContainer.className = 'tags-container';
+    tagsContainer.id = `tags-${index}`;
+    
+    profile.tags.forEach((tag, tagIndex) => {
+      const tagEl = document.createElement('span');
+      tagEl.className = 'tag';
+      tagEl.innerHTML = `
+        ${tag.replace(/"/g, '&quot;')}
+        <button onclick="removeTag(${index}, ${tagIndex})">×</button>
       `;
-      card.appendChild(nameGroup);
-
-      // Дистанция
-      const distanceGroup = document.createElement('div');
-      distanceGroup.className = 'form-group';
-      distanceGroup.innerHTML = `
-        <label>Дистанция (например: "12 км от вас")</label>
-        <input type="text" value="${profile.distance.replace(/"/g, '&quot;')}" onchange="updateProfile(${index}, 'distance', this.value)">
+      tagsContainer.appendChild(tagEl);
+    });
+    
+    tagsGroup.appendChild(tagsContainer);
+  
+    // Добавление нового тега
+    const addTagDiv = document.createElement('div');
+    addTagDiv.className = 'add-tag';
+    addTagDiv.innerHTML = `
+      <input type="text" id="new-tag-${index}" placeholder="Новый тег">
+      <button onclick="addTag(${index})">Добавить</button>
+    `;
+    tagsGroup.appendChild(addTagDiv);
+    card.appendChild(tagsGroup);
+  
+    // Фото
+    const photosGroup = document.createElement('div');
+    photosGroup.className = 'form-group';
+    photosGroup.innerHTML = '<label>Фото (URL)</label>';
+    
+    const photosList = document.createElement('div');
+    photosList.className = 'photos-list';
+    photosList.id = `photos-${index}`;
+    
+    profile.photos.forEach((photo, photoIndex) => {
+      const photoItem = document.createElement('div');
+      photoItem.className = 'photo-item';
+      photoItem.innerHTML = `
+        <input type="text" value="${photo.replace(/"/g, '&quot;')}" onchange="updatePhoto(${index}, ${photoIndex}, this.value)">
+        <button onclick="removePhoto(${index}, ${photoIndex})">×</button>
       `;
-      card.appendChild(distanceGroup);
-
-      // Описание
-      const descGroup = document.createElement('div');
-      descGroup.className = 'form-group';
-      descGroup.innerHTML = `
-        <label>Описание</label>
-        <textarea rows="3" onchange="updateProfile(${index}, 'description', this.value)">${profile.description.replace(/"/g, '&quot;')}</textarea>
-      `;
-      card.appendChild(descGroup);
-
-      // Теги
-      const tagsGroup = document.createElement('div');
-      tagsGroup.className = 'form-group';
-      tagsGroup.innerHTML = '<label>Теги</label>';
-      
-      const tagsContainer = document.createElement('div');
-      tagsContainer.className = 'tags-container';
-      tagsContainer.id = `tags-${index}`;
-      
-      profile.tags.forEach((tag, tagIndex) => {
-        const tagEl = document.createElement('span');
-        tagEl.className = 'tag';
-        tagEl.innerHTML = `
-          ${tag.replace(/"/g, '&quot;')}
-          <button onclick="removeTag(${index}, ${tagIndex})">×</button>
-        `;
-        tagsContainer.appendChild(tagEl);
-      });
-      
-      tagsGroup.appendChild(tagsContainer);
-
-      // Добавление нового тега
-      const addTagDiv = document.createElement('div');
-      addTagDiv.className = 'add-tag';
-      addTagDiv.innerHTML = `
-        <input type="text" id="new-tag-${index}" placeholder="Новый тег">
-        <button onclick="addTag(${index})">Добавить</button>
-      `;
-      tagsGroup.appendChild(addTagDiv);
-      card.appendChild(tagsGroup);
-
-      // Фото
-      const photosGroup = document.createElement('div');
-      photosGroup.className = 'form-group';
-      photosGroup.innerHTML = '<label>Фото (URL)</label>';
-      
-      const photosList = document.createElement('div');
-      photosList.className = 'photos-list';
-      photosList.id = `photos-${index}`;
-      
-      profile.photos.forEach((photo, photoIndex) => {
-        const photoItem = document.createElement('div');
-        photoItem.className = 'photo-item';
-        photoItem.innerHTML = `
-          <input type="text" value="${photo.replace(/"/g, '&quot;')}" onchange="updatePhoto(${index}, ${photoIndex}, this.value)">
-          <button onclick="removePhoto(${index}, ${photoIndex})">×</button>
-        `;
-        photosList.appendChild(photoItem);
-      });
-      
-      photosGroup.appendChild(photosList);
-
-      // Добавление нового фото
-      const addPhotoDiv = document.createElement('div');
-      addPhotoDiv.className = 'add-photo';
-      addPhotoDiv.innerHTML = `
-        <input type="text" id="new-photo-${index}" placeholder="URL нового фото">
-        <button onclick="addPhoto(${index})">Добавить</button>
-      `;
-      photosGroup.appendChild(addPhotoDiv);
-      card.appendChild(photosGroup);
-
-      // Кнопки управления профилем
-      const buttonGroup = document.createElement('div');
-      buttonGroup.className = 'button-group';
-      buttonGroup.innerHTML = `
-        <button class="btn btn-danger" onclick="deleteProfile(${index})">Удалить профиль</button>
-      `;
-      card.appendChild(buttonGroup);
-
-      return card;
-    }
-
-    // Функции обновления
-    window.updateProfile = function(index, field, value) {
+      photosList.appendChild(photoItem);
+    });
+    
+    photosGroup.appendChild(photosList);
+  
+    // Добавление нового фото
+    const addPhotoDiv = document.createElement('div');
+    addPhotoDiv.className = 'add-photo';
+    addPhotoDiv.innerHTML = `
+      <input type="text" id="new-photo-${index}" placeholder="URL нового фото">
+      <button onclick="addPhoto(${index})">Добавить</button>
+    `;
+    photosGroup.appendChild(addPhotoDiv);
+    card.appendChild(photosGroup);
+  
+    // Кнопки управления профилем
+    const buttonGroup = document.createElement('div');
+    buttonGroup.className = 'button-group';
+    buttonGroup.innerHTML = `
+      <button class="btn btn-danger" onclick="deleteProfile(${index})">Удалить профиль</button>
+    `;
+    card.appendChild(buttonGroup);
+  
+    return card;
+  }
+  
+  // Обнови функцию updateProfile для обработки булевых значений
+  window.updateProfile = function(index, field, value) {
+    if (field === 'is_match') {
+      workingProfiles[index][field] = value; // value уже boolean из checkbox
+    } else {
       workingProfiles[index][field] = value;
-    };
+    }
+  };
 
     window.updatePhoto = function(profileIndex, photoIndex, value) {
       workingProfiles[profileIndex].photos[photoIndex] = value;
@@ -785,14 +800,15 @@ if (typeof module !== 'undefined' && module.exports) {
       renderEditor();
     };
 
-    window.addNewProfile = function() {
-      workingProfiles.push({
-        name: "Новый профиль, 25",
-        distance: "10 км от вас",
-        tags: ["Тег 1", "Тег 2"],
-        description: "Описание нового профиля",
-        photos: ["https://picsum.photos/500/900?random=100"]
-      });
+  window.addNewProfile = function() {
+    workingProfiles.push({
+      name: "Новый профиль, 25",
+      distance: "10 км от вас",
+      tags: ["Тег 1", "Тег 2"],
+      description: "Описание нового профиля",
+      photos: ["https://picsum.photos/500/900?random=100"],
+      is_match: false // Добавлено поле
+    });
       renderEditor();
     };
 
