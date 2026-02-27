@@ -1,5 +1,5 @@
 // profiles.js - общий файл с данными профилей
-// Автоматически сгенерировано редактором 28.02.2026, 01:47:58
+// Автоматически сгенерировано редактором 28.02.2026, 01:54:01
 const profiles = [
   {
     "name": "Николай, 26",
@@ -110,7 +110,7 @@ const profiles = [
     "is_match": false
   },
   {
-    "name": "Никита, 34",
+    "name": "Никита, 22",
     "distance": "55 км от вас",
     "tags": [
       "эстет",
@@ -127,12 +127,12 @@ const profiles = [
     "is_match": false
   },
   {
-    "name": "Георгий, 37",
+    "name": "Георгий, 33",
     "distance": "21 км от вас",
     "tags": [],
     "description": "Волшебник, маг и чародей ) заколдую и украду в сказку и рай )",
     "photos": [
-      "https://i.pinimg.com/736x/45/4b/19/454b1918c61307b38908ddf284e47b1b.jpg"
+      "https://i.pinimg.com/736x/58/8f/c1/588fc1a513e2d7a6f9adff2291e2dbe7.jpg"
     ],
     "is_match": false
   },
@@ -153,13 +153,9 @@ const profiles = [
     "is_match": false
   },
   {
-    "name": "Семен, 32",
+    "name": "Семен, 36",
     "distance": "10 км от вас",
-    "tags": [
-      "Футбол",
-      "Квизы",
-      "Активный отдых"
-    ],
+    "tags": [],
     "description": "Ищу верную подругу для серьезных отношений",
     "photos": [
       "https://i.pinimg.com/736x/24/1b/7e/241b7eaa565daf85836d33f47caccae6.jpg"
@@ -167,7 +163,7 @@ const profiles = [
     "is_match": false
   },
   {
-    "name": "Алексей, 36",
+    "name": "Алексей, 32",
     "distance": "90 км от вас",
     "tags": [
       "американский футбол",
