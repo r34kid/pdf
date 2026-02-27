@@ -1,5 +1,5 @@
 // profiles.js - общий файл с данными профилей
-// Автоматически сгенерировано редактором 27.02.2026, 20:03:04
+// Автоматически сгенерировано редактором 27.02.2026, 23:32:55
 const profiles = [
   {
     "name": "Николай, 26",
@@ -31,7 +31,7 @@ const profiles = [
       "https://i.pinimg.com/736x/b0/9d/40/b09d408e5153007370469031ef9126fe.jpg",
       "https://i.pinimg.com/1200x/05/ec/a4/05eca4c0292df28cc2b7c4096c284d6e.jpg"
     ],
-    "is_match": false
+    "is_match": true
   },
   {
     "name": "Иван, 31",
@@ -48,7 +48,7 @@ const profiles = [
       "https://i.pinimg.com/736x/83/fa/c7/83fac76f374d3557ff444065c77cdda5.jpg",
       "https://i.pinimg.com/736x/78/65/7e/78657e1dd607854e340e9f627f3fb05a.jpg"
     ],
-    "is_match": false
+    "is_match": true
   },
   {
     "name": "Роман, 34",
@@ -62,7 +62,7 @@ const profiles = [
     "photos": [
       "https://i.pinimg.com/1200x/90/d0/cb/90d0cb62554abcbbb3cc1603e3574ca6.jpg"
     ],
-    "is_match": false
+    "is_match": true
   },
   {
     "name": "Леша, 22",
@@ -76,7 +76,7 @@ const profiles = [
     "photos": [
       "https://i.pinimg.com/736x/9c/c4/eb/9cc4eb61c6c71729a6446b776e60e083.jpg"
     ],
-    "is_match": false
+    "is_match": true
   },
   {
     "name": "Мирон, 31",
@@ -90,7 +90,7 @@ const profiles = [
       "https://i.pinimg.com/736x/4b/56/c6/4b56c6ab1a38a2167daff9fe9b575379.jpg",
       "https://i.pinimg.com/736x/a5/71/b8/a571b8b0e6a006c70fab993d631429c2.jpg"
     ],
-    "is_match": false
+    "is_match": true
   },
   {
     "name": "Даня, 24",
