@@ -585,45 +585,45 @@ function createCard(profile, isNext = false) {
   dislikeOverlay.className = "overlay-dislike";
 
   // // Верхняя часть
-  // const top = document.createElement("div");
-  // top.className = "top";
-
-  // const indicators = document.createElement("div");
-  // indicators.className = "photo-indicators";
-  // profile.photos.forEach((_, i) => {
-  //   const bar = document.createElement("div");
-  //   if(i === (isNext ? 0 : currentPhotoIndex)) bar.classList.add("active");
-  //   indicators.appendChild(bar);
-  // });
-
-  // const distance = document.createElement("div");
-  // distance.className = "distance";
-  // distance.textContent = profile.distance;
-
-  // top.appendChild(indicators);
-  // top.appendChild(distance);
-
-  // Верхняя часть
   const top = document.createElement("div");
   top.className = "top";
+
+  const indicators = document.createElement("div");
+  indicators.className = "photo-indicators";
+  profile.photos.forEach((_, i) => {
+    const bar = document.createElement("div");
+    if(i === (isNext ? 0 : currentPhotoIndex)) bar.classList.add("active");
+    indicators.appendChild(bar);
+  });
+
+  const distance = document.createElement("div");
+  distance.className = "distance";
+  distance.textContent = profile.distance;
+
+  top.appendChild(indicators);
+  top.appendChild(distance);
+
+  // Верхняя часть
+//   const top = document.createElement("div");
+//   top.className = "top";
   
-  // Показываем индикаторы только если фото больше 1
-  if (profile.photos.length > 1) {
-    const indicators = document.createElement("div");
-    indicators.className = "photo-indicators";
-    profile.photos.forEach((_, i) => {
-      const bar = document.createElement("div");
-      if(i === (isNext ? 0 : currentPhotoIndex)) bar.classList.add("active");
-      indicators.appendChild(bar);
-    });
-    top.appendChild(indicators);
-  };
+//   // Показываем индикаторы только если фото больше 1
+//   if (profile.photos.length > 1) {
+//     const indicators = document.createElement("div");
+//     indicators.className = "photo-indicators";
+//     profile.photos.forEach((_, i) => {
+//       const bar = document.createElement("div");
+//       if(i === (isNext ? 0 : currentPhotoIndex)) bar.classList.add("active");
+//       indicators.appendChild(bar);
+//     });
+//     top.appendChild(indicators);
+//   };
 
-const distance = document.createElement("div");
-distance.className = "distance";
-distance.textContent = profile.distance;
+// const distance = document.createElement("div");
+// distance.className = "distance";
+// distance.textContent = profile.distance;
 
-top.appendChild(distance);
+// top.appendChild(distance);
 
   // // Бейдж мэтча (если is_match = true)
   // if (profile.is_match && !isNext) {
