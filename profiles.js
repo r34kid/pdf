@@ -1,5 +1,5 @@
 // profiles.js - общий файл с данными профилей
-// Автоматически сгенерировано редактором 27.02.2026, 19:46:48
+// Автоматически сгенерировано редактором 27.02.2026, 20:03:04
 const profiles = [
   {
     "name": "Николай, 26",
@@ -58,7 +58,7 @@ const profiles = [
       "Держу форму",
       "Не курю"
     ],
-    "description": "фото в лс\nДам тебе то, что не сможет ни один холостяк\nЗнаю чего хочу, какую и зачем",
+    "description": "фото в лс\nЖенат. Готов дать тебе то, что не сможет ни один холостяк\nЗнаю чего хочу, какую и зачем",
     "photos": [
       "https://i.pinimg.com/1200x/90/d0/cb/90d0cb62554abcbbb3cc1603e3574ca6.jpg"
     ],
@@ -76,7 +76,7 @@ const profiles = [
     "photos": [
       "https://i.pinimg.com/736x/9c/c4/eb/9cc4eb61c6c71729a6446b776e60e083.jpg"
     ],
-    "is_match": true
+    "is_match": false
   },
   {
     "name": "Мирон, 31",
@@ -199,10 +199,26 @@ const profiles = [
     "is_match": false
   },
   {
+    "name": "Кирилл, 34",
+    "distance": "76 км от вас",
+    "tags": [
+      "фикс",
+      "фильтр"
+    ],
+    "description": "адекватное описание",
+    "photos": [
+      "https://i.pinimg.com/736x/b0/57/81/b05781e22c51984ad78cd1fd55e72f1a.jpg"
+    ],
+    "is_match": false
+  },
+  {
     "name": "Никита, 29",
     "distance": "37 км от вас",
-    "tags": [],
-    "description": "адекватное описание",
+    "tags": [
+      "Тег 1",
+      "Тег 2"
+    ],
+    "description": "адекватное",
     "photos": [
       "https://i.pinimg.com/736x/c0/eb/6e/c0eb6e4c0f3be43940ade5b466ad1e1d.jpg"
     ],
