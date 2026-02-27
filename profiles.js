@@ -1,5 +1,5 @@
 // profiles.js - общий файл с данными профилей
-// Автоматически сгенерировано редактором 27.02.2026, 23:32:55
+// Автоматически сгенерировано редактором 28.02.2026, 01:47:58
 const profiles = [
   {
     "name": "Николай, 26",
@@ -8,9 +8,10 @@ const profiles = [
       "MACAN",
       "Jah Khalib",
       "GUF",
-      "MiyaGi"
+      "MiyaGi",
+      "icegerget"
     ],
-    "description": "Ищу HR или Стрелец/Весы/Овен\nЦеню искренность, чувство юмора, умение наслаждаться простыми вещами",
+    "description": "ищу Стрелец/Весы/Овен\nЦеню искренность, чувство юмора, умение наслаждаться простыми вещами",
     "photos": [
       "https://avatars.mds.yandex.net/i?id=54020f314bf0b160580083a7fc3062dd_l-5885384-images-thumbs&n=13"
     ],
@@ -31,10 +32,10 @@ const profiles = [
       "https://i.pinimg.com/736x/b0/9d/40/b09d408e5153007370469031ef9126fe.jpg",
       "https://i.pinimg.com/1200x/05/ec/a4/05eca4c0292df28cc2b7c4096c284d6e.jpg"
     ],
-    "is_match": true
+    "is_match": false
   },
   {
-    "name": "Иван, 31",
+    "name": "Иван, 28",
     "distance": "38 км от вас",
     "tags": [
       "Телец",
@@ -48,7 +49,7 @@ const profiles = [
       "https://i.pinimg.com/736x/83/fa/c7/83fac76f374d3557ff444065c77cdda5.jpg",
       "https://i.pinimg.com/736x/78/65/7e/78657e1dd607854e340e9f627f3fb05a.jpg"
     ],
-    "is_match": true
+    "is_match": false
   },
   {
     "name": "Роман, 34",
@@ -58,25 +59,24 @@ const profiles = [
       "Держу форму",
       "Не курю"
     ],
-    "description": "фото в лс\nЖенат. Готов дать тебе то, что не сможет ни один холостяк\nЗнаю чего хочу, какую и зачем",
+    "description": "фото в лс\nЖенат. Готов дать тебе то, что не сможет ни один холостяк",
     "photos": [
       "https://i.pinimg.com/1200x/90/d0/cb/90d0cb62554abcbbb3cc1603e3574ca6.jpg"
     ],
-    "is_match": true
+    "is_match": false
   },
   {
     "name": "Леша, 22",
     "distance": "12 км от вас",
     "tags": [
       "Скорпион",
-      "182 см",
-      "Одинок"
+      "182 см"
     ],
     "description": "Учусь, работаю, хожу в зальчик. Люблю футбол, теннис, книги, игры, сериалы. На серьезное не зарекаюсь, но всякое бывает)",
     "photos": [
       "https://i.pinimg.com/736x/9c/c4/eb/9cc4eb61c6c71729a6446b776e60e083.jpg"
     ],
-    "is_match": true
+    "is_match": false
   },
   {
     "name": "Мирон, 31",
@@ -85,12 +85,12 @@ const profiles = [
       "образован",
       "работаю"
     ],
-    "description": "интелектуальное общение",
+    "description": "Ищу такого же человека как я, только девушку)",
     "photos": [
       "https://i.pinimg.com/736x/4b/56/c6/4b56c6ab1a38a2167daff9fe9b575379.jpg",
       "https://i.pinimg.com/736x/a5/71/b8/a571b8b0e6a006c70fab993d631429c2.jpg"
     ],
-    "is_match": true
+    "is_match": false
   },
   {
     "name": "Даня, 24",
@@ -130,7 +130,7 @@ const profiles = [
     "name": "Георгий, 37",
     "distance": "21 км от вас",
     "tags": [],
-    "description": "ВСЕХ ПОДРЯД НЕ ЛАЙКАЮ\nкак пойдет диалог имеет значение",
+    "description": "Волшебник, маг и чародей ) заколдую и украду в сказку и рай )",
     "photos": [
       "https://i.pinimg.com/736x/45/4b/19/454b1918c61307b38908ddf284e47b1b.jpg"
     ],
@@ -146,7 +146,7 @@ const profiles = [
       "честность",
       "стрессоустойчивость"
     ],
-    "description": "УДИВИ",
+    "description": "Бросил девушку, промахнулся...",
     "photos": [
       "https://i.pinimg.com/736x/b8/31/56/b831563586773d537d1208f42d14638e.jpg"
     ],
@@ -170,13 +170,12 @@ const profiles = [
     "name": "Алексей, 36",
     "distance": "90 км от вас",
     "tags": [
-      "spotify",
       "американский футбол",
       "языки",
       "путешествия",
       "AI"
     ],
-    "description": " Нагенерирую нам прекрасное будущее",
+    "description": "У пользователя подключен AI-бот, который автоматически отклоняет анкеты с ключевыми словами и фразами, которые бот определяет как: \"свободные отношения\", \"сделаю тебе массаж\", \"общение без продолжения\"",
     "photos": [
       "https://i.pinimg.com/736x/79/bb/f2/79bbf2abff71aedc141660b73222c720.jpg",
       "https://i.pinimg.com/736x/88/aa/f4/88aaf403f407106d37c7105de7c59b4f.jpg"
@@ -187,8 +186,6 @@ const profiles = [
     "name": "Антон, 36",
     "distance": "12 км от вас",
     "tags": [
-      "медитация",
-      "хатха-йога",
       "собака мордой вверх"
     ],
     "description": "Нехорошо любить, если при этом не возвышаешься",
