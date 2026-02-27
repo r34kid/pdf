@@ -1,5 +1,5 @@
 // profiles.js - общий файл с данными профилей
-// Автоматически сгенерировано редактором 27.02.2026, 19:31:09
+// Автоматически сгенерировано редактором 27.02.2026, 19:37:28
 const profiles = [
   {
     "name": "Николай, 26",
@@ -74,7 +74,6 @@ const profiles = [
     ],
     "description": "Учусь, работаю, хожу в зальчик. Люблю футбол, теннис, книги, игры, сериалы. На серьезное не зарекаюсь, но всякое бывает)",
     "photos": [
-      "https://i.pinimg.com/736x/fd/b8/7b/fdb87b4fadadc6184ccd54c22cc9396b.jpg",
       "https://i.pinimg.com/736x/9c/c4/eb/9cc4eb61c6c71729a6446b776e60e083.jpg"
     ],
     "is_match": true
@@ -193,6 +192,16 @@ const profiles = [
     "photos": [
       "https://i.pinimg.com/736x/8d/a4/03/8da403df4590eed72b9fe01feaee7c13.jpg",
       "https://i.pinimg.com/736x/bb/b5/4a/bbb54a1e3a66f620c6ffcbe33e34ee2a.jpg"
+    ],
+    "is_match": false
+  },
+  {
+    "name": "Никита, 29",
+    "distance": "37 км от вас",
+    "tags": [],
+    "description": "адекватное описание",
+    "photos": [
+      "https://i.pinimg.com/736x/c0/eb/6e/c0eb6e4c0f3be43940ade5b466ad1e1d.jpg"
     ],
     "is_match": false
   }
