@@ -571,13 +571,13 @@ function createCard(profile, isNext = false) {
   top.appendChild(indicators);
   top.appendChild(distance);
 
-  // Бейдж мэтча (если is_match = true)
-  if (profile.is_match && !isNext) {
-    const matchBadge = document.createElement("div");
-    matchBadge.className = "match-badge";
-    matchBadge.textContent = "❤️ Взаимно";
-    card.appendChild(matchBadge);
-  }
+  // // Бейдж мэтча (если is_match = true)
+  // if (profile.is_match && !isNext) {
+  //   const matchBadge = document.createElement("div");
+  //   matchBadge.className = "match-badge";
+  //   matchBadge.textContent = "❤️ Взаимно";
+  //   card.appendChild(matchBadge);
+  // }
 
   // Нижняя часть
   const bottom = document.createElement("div");
