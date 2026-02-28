@@ -1,5 +1,5 @@
 // profiles.js - общий файл с данными профилей
-// Автоматически сгенерировано редактором 28.02.2026, 02:11:07
+// Автоматически сгенерировано редактором 28.02.2026, 12:07:59
 const profiles = [
   {
     "name": "Николай, 26",
@@ -35,7 +35,7 @@ const profiles = [
     "is_match": false
   },
   {
-    "name": "Роман, 34",
+    "name": "Роман, 44",
     "distance": "55 км от вас",
     "tags": [
       "Рак",
@@ -44,7 +44,7 @@ const profiles = [
     ],
     "description": "фото в лс\nЖенат. Готов дать тебе то, что не сможет ни один холостяк",
     "photos": [
-      "https://i.pinimg.com/1200x/90/d0/cb/90d0cb62554abcbbb3cc1603e3574ca6.jpg"
+      "https://i.pinimg.com/736x/23/d0/b8/23d0b80daf142f0f5f62a7961a5444da.jpg"
     ],
     "is_match": false
   },
