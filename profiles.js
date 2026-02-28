@@ -1,5 +1,5 @@
 // profiles.js - общий файл с данными профилей
-// Автоматически сгенерировано редактором 28.02.2026, 14:27:56
+// Автоматически сгенерировано редактором 28.02.2026, 12:25:36
 const profiles = [
   {
     "name": "Николай, 26",
@@ -8,33 +8,17 @@ const profiles = [
       "MACAN",
       "Jah Khalib",
       "GUF",
-      "MiyaGi"
+      "MiyaGi",
+      "icegerget"
     ],
-    "description": "Ищу HR или Стрелец/Весы/Овен\n\nЦеню искренность, чувство юмора, умение наслаждаться простыми вещами",
+    "description": "ищу Стрелец/Весы/Овен\nЦеню искренность, чувство юмора, умение наслаждаться простыми вещами",
     "photos": [
-      "https://avatars.mds.yandex.net/i?id=54020f314bf0b160580083a7fc3062dd_l-5885384-images-thumbs&n=13"
+      "https://i.pinimg.com/736x/d8/c6/36/d8c6364b57dbe2cf7a56835f08e50fdb.jpg"
     ],
     "is_match": false
   },
   {
-    "name": " Серёга, 19",
-    "distance": "10 км от вас",
-    "tags": [
-      "Работа",
-      "Православие",
-      "Лев",
-      "190 см",
-      "Дружба"
-    ],
-    "description": "",
-    "photos": [
-      "https://i.pinimg.com/736x/b0/9d/40/b09d408e5153007370469031ef9126fe.jpg",
-      "https://i.pinimg.com/1200x/05/ec/a4/05eca4c0292df28cc2b7c4096c284d6e.jpg"
-    ],
-    "is_match": false
-  },
-  {
-    "name": "Иван, 31",
+    "name": "Иван, 28",
     "distance": "38 км от вас",
     "tags": [
       "Телец",
@@ -43,7 +27,7 @@ const profiles = [
       "Баскетбол",
       "Плавание"
     ],
-    "description": "ТАРЕЛОЧНИЦЫ ❌❌❌\n\nДевушки ходят по клубам, изменяют, встречаться за деньги мимо.\nИщу девушку ОБЫЧНУЮ за спорт, за доверие, без вредных привычек, готова к семье, не ходит по клубам.\nЯ 176 см, 63 кг, атлет, спортсмен, по клубам не хожу",
+    "description": "ТАРЕЛОЧНИЦЫ ❌❌❌\nДевушки ходят по клубам, изменяют, встречаться за деньги мимо.\nИщу девушку ОБЫЧНУЮ за спорт, за доверие, без вредных привычек, готова к семье, не ходит по клубам.\nЯ 176 см, 63 кг, атлет, спортсмен, по клубам не хожу",
     "photos": [
       "https://i.pinimg.com/736x/83/fa/c7/83fac76f374d3557ff444065c77cdda5.jpg",
       "https://i.pinimg.com/736x/78/65/7e/78657e1dd607854e340e9f627f3fb05a.jpg"
@@ -51,16 +35,23 @@ const profiles = [
     "is_match": false
   },
   {
-    "name": "Роман, 34",
-    "distance": "55 км от вас",
+    "name": "Егор, 30",
+    "distance": "10 км от вас",
     "tags": [
-      "Рак",
-      "Держу форму",
-      "Не курю"
+      "я",
+      "слил",
+      "на",
+      "тебя",
+      "сотня",
+      "и",
+      "наверх",
+      "еще",
+      "сотня"
     ],
-    "description": "фото в лс\nЖенат. Готов дать тебе то, что не сможет ни один холостяк\nЗнаю чего хочу, какую и зачем",
+    "description": "Возьми телефон, детка. Я знаю, ты хочешь позвонить мне сегодня",
     "photos": [
-      "https://i.pinimg.com/1200x/90/d0/cb/90d0cb62554abcbbb3cc1603e3574ca6.jpg"
+      "https://i.pinimg.com/736x/77/63/6e/77636e85e77d4cf2f21ebb2e4ad5fed2.jpg",
+      "https://i.pinimg.com/736x/30/fb/2c/30fb2ccdfe0b6d2a7cb2e05a29f2ce8d.jpg"
     ],
     "is_match": false
   },
@@ -69,12 +60,12 @@ const profiles = [
     "distance": "12 км от вас",
     "tags": [
       "Скорпион",
-      "182 см",
-      "Одинок"
+      "182 см"
     ],
     "description": "Учусь, работаю, хожу в зальчик. Люблю футбол, теннис, книги, игры, сериалы. На серьезное не зарекаюсь, но всякое бывает)",
     "photos": [
-      "https://i.pinimg.com/736x/9c/c4/eb/9cc4eb61c6c71729a6446b776e60e083.jpg"
+      "https://i.pinimg.com/736x/9c/c4/eb/9cc4eb61c6c71729a6446b776e60e083.jpg",
+      "https://i.pinimg.com/736x/fd/b8/7b/fdb87b4fadadc6184ccd54c22cc9396b.jpg"
     ],
     "is_match": false
   },
@@ -85,10 +76,24 @@ const profiles = [
       "образован",
       "работаю"
     ],
-    "description": "интелектуальное общение",
+    "description": "Ищу такого же человека как я, только девушку)",
     "photos": [
       "https://i.pinimg.com/736x/4b/56/c6/4b56c6ab1a38a2167daff9fe9b575379.jpg",
       "https://i.pinimg.com/736x/a5/71/b8/a571b8b0e6a006c70fab993d631429c2.jpg"
+    ],
+    "is_match": false
+  },
+  {
+    "name": "Роман, 44",
+    "distance": "55 км от вас",
+    "tags": [
+      "Рак",
+      "Держу форму",
+      "Не курю"
+    ],
+    "description": "фото в лс\nЖенат. Готов дать тебе то, что не сможет ни один холостяк",
+    "photos": [
+      "https://i.pinimg.com/736x/23/d0/b8/23d0b80daf142f0f5f62a7961a5444da.jpg"
     ],
     "is_match": false
   },
@@ -110,7 +115,7 @@ const profiles = [
     "is_match": false
   },
   {
-    "name": "Никита, 34",
+    "name": "Никита, 22",
     "distance": "55 км от вас",
     "tags": [
       "эстет",
@@ -127,12 +132,12 @@ const profiles = [
     "is_match": false
   },
   {
-    "name": "Георгий, 37",
+    "name": "Георгий, 33",
     "distance": "21 км от вас",
     "tags": [],
-    "description": "ВСЕХ ПОДРЯД НЕ ЛАЙКАЮ\nкак пойдет диалог имеет значение",
+    "description": "Волшебник, маг и чародей ) заколдую и украду в сказку и рай )",
     "photos": [
-      "https://i.pinimg.com/736x/45/4b/19/454b1918c61307b38908ddf284e47b1b.jpg"
+      "https://i.pinimg.com/736x/58/8f/c1/588fc1a513e2d7a6f9adff2291e2dbe7.jpg"
     ],
     "is_match": false
   },
@@ -146,20 +151,16 @@ const profiles = [
       "честность",
       "стрессоустойчивость"
     ],
-    "description": "УДИВИ",
+    "description": "Бросил девушку, промахнулся...",
     "photos": [
       "https://i.pinimg.com/736x/b8/31/56/b831563586773d537d1208f42d14638e.jpg"
     ],
     "is_match": false
   },
   {
-    "name": "Семен, 32",
+    "name": "Семен, 36",
     "distance": "10 км от вас",
-    "tags": [
-      "Футбол",
-      "Квизы",
-      "Активный отдых"
-    ],
+    "tags": [],
     "description": "Ищу верную подругу для серьезных отношений",
     "photos": [
       "https://i.pinimg.com/736x/24/1b/7e/241b7eaa565daf85836d33f47caccae6.jpg"
@@ -167,16 +168,15 @@ const profiles = [
     "is_match": false
   },
   {
-    "name": "Алексей, 36",
+    "name": "Алексей, 32",
     "distance": "90 км от вас",
     "tags": [
-      "spotify",
       "американский футбол",
       "языки",
       "путешествия",
       "AI"
     ],
-    "description": " Нагенерирую нам прекрасное будущее",
+    "description": "У пользователя подключен AI-бот, который автоматически отклоняет анкеты с ключевыми словами и фразами, которые бот определяет как: \"свободные отношения\", \"сделаю тебе массаж\", \"общение без продолжения\"",
     "photos": [
       "https://i.pinimg.com/736x/79/bb/f2/79bbf2abff71aedc141660b73222c720.jpg",
       "https://i.pinimg.com/736x/88/aa/f4/88aaf403f407106d37c7105de7c59b4f.jpg"
@@ -187,9 +187,9 @@ const profiles = [
     "name": "Антон, 36",
     "distance": "12 км от вас",
     "tags": [
-      "медитация",
-      "хатха-йога",
-      "собака мордой вверх"
+      "собака мордой вверх",
+      "хайкинг",
+      "стоицизм"
     ],
     "description": "Нехорошо любить, если при этом не возвышаешься",
     "photos": [
@@ -197,6 +197,20 @@ const profiles = [
       "https://i.pinimg.com/736x/bb/b5/4a/bbb54a1e3a66f620c6ffcbe33e34ee2a.jpg"
     ],
     "is_match": false
+  },
+  {
+    "name": "Никита, 29",
+    "distance": "37 км от вас",
+    "tags": [
+      "Тег 1",
+      "Тег 2"
+    ],
+    "description": "адекватное",
+    "photos": [
+      "https://i.pinimg.com/736x/c0/eb/6e/c0eb6e4c0f3be43940ade5b466ad1e1d.jpg",
+      "https://i.pinimg.com/736x/ab/4b/cb/ab4bcb74dc54fe26aced0c2f2bcaa90d.jpg"
+    ],
+    "is_match": true
   },
   {
     "name": "Кирилл, 34",
@@ -208,20 +222,6 @@ const profiles = [
     "description": "адекватное описание",
     "photos": [
       "https://i.pinimg.com/736x/b0/57/81/b05781e22c51984ad78cd1fd55e72f1a.jpg"
-    ],
-    "is_match": false
-  },
-  {
-    "name": "Никита, 29",
-    "distance": "37 км от вас",
-    "tags": [
-      "Тег 1",
-      "Тег 2"
-    ],
-    "description": "Готовлю в ресторане, но мог бы для тебя",
-    "photos": [
-      "https://i.pinimg.com/736x/c0/eb/6e/c0eb6e4c0f3be43940ade5b466ad1e1d.jpg",
-      "https://i.pinimg.com/736x/e7/d5/cc/e7d5cc09118525959d6b2818868c375c.jpg"
     ],
     "is_match": false
   }
