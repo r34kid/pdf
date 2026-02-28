@@ -68,7 +68,7 @@ const profiles = [
       "https://i.pinimg.com/736x/30/fb/2c/30fb2ccdfe0b6d2a7cb2e05a29f2ce8d.jpg"
     ],
     "is_match": false
-  }
+  },
   {
     "name": "Леша, 22",
     "distance": "12 км от вас",
