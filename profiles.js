@@ -35,20 +35,6 @@ const profiles = [
     "is_match": false
   },
   {
-    "name": "Роман, 44",
-    "distance": "55 км от вас",
-    "tags": [
-      "Рак",
-      "Держу форму",
-      "Не курю"
-    ],
-    "description": "фото в лс\nЖенат. Готов дать тебе то, что не сможет ни один холостяк",
-    "photos": [
-      "https://i.pinimg.com/736x/23/d0/b8/23d0b80daf142f0f5f62a7961a5444da.jpg"
-    ],
-    "is_match": false
-  },
-  {
     "name": "Егор, 30",
     "distance": "10 км от вас",
     "tags": [
@@ -94,6 +80,20 @@ const profiles = [
     "photos": [
       "https://i.pinimg.com/736x/4b/56/c6/4b56c6ab1a38a2167daff9fe9b575379.jpg",
       "https://i.pinimg.com/736x/a5/71/b8/a571b8b0e6a006c70fab993d631429c2.jpg"
+    ],
+    "is_match": false
+  },
+  {
+    "name": "Роман, 44",
+    "distance": "55 км от вас",
+    "tags": [
+      "Рак",
+      "Держу форму",
+      "Не курю"
+    ],
+    "description": "фото в лс\nЖенат. Готов дать тебе то, что не сможет ни один холостяк",
+    "photos": [
+      "https://i.pinimg.com/736x/23/d0/b8/23d0b80daf142f0f5f62a7961a5444da.jpg"
     ],
     "is_match": false
   },
