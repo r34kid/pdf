@@ -49,6 +49,27 @@ const profiles = [
     "is_match": false
   },
   {
+    "name": "Егор, 30",
+    "distance": "10 км от вас",
+    "tags": [
+      "я",
+      "слил",
+      "на",
+      "тебя",
+      "сотня",
+      "и",
+      "наверх",
+      "еще",
+      "сотня"
+    ],
+    "description": "Возьми телефон, детка. Я знаю, ты хочешь позвонить мне сегодня",
+    "photos": [
+      "https://i.pinimg.com/736x/77/63/6e/77636e85e77d4cf2f21ebb2e4ad5fed2.jpg",
+      "https://i.pinimg.com/736x/30/fb/2c/30fb2ccdfe0b6d2a7cb2e05a29f2ce8d.jpg"
+    ],
+    "is_match": false
+  }
+  {
     "name": "Леша, 22",
     "distance": "12 км от вас",
     "tags": [
@@ -200,27 +221,6 @@ const profiles = [
     "description": "адекватное",
     "photos": [
       "https://i.pinimg.com/736x/c0/eb/6e/c0eb6e4c0f3be43940ade5b466ad1e1d.jpg"
-    ],
-    "is_match": false
-  },
-  {
-    "name": "Егор, 30",
-    "distance": "10 км от вас",
-    "tags": [
-      "я",
-      "слил",
-      "на",
-      "тебя",
-      "сотня",
-      "и",
-      "наверх",
-      "еще",
-      "сотня"
-    ],
-    "description": "Возьми телефон, детка. Я знаю, ты хочешь позвонить мне сегодня",
-    "photos": [
-      "https://i.pinimg.com/736x/77/63/6e/77636e85e77d4cf2f21ebb2e4ad5fed2.jpg",
-      "https://i.pinimg.com/736x/30/fb/2c/30fb2ccdfe0b6d2a7cb2e05a29f2ce8d.jpg"
     ],
     "is_match": false
   }
