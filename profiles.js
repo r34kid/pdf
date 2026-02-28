@@ -1,5 +1,5 @@
 // profiles.js - общий файл с данными профилей
-// Автоматически сгенерировано редактором 28.02.2026, 12:25:36
+// Автоматически сгенерировано редактором 28.02.2026, 14:44:41
 const profiles = [
   {
     "name": "Николай, 26",
@@ -205,10 +205,10 @@ const profiles = [
       "Тег 1",
       "Тег 2"
     ],
-    "description": "адекватное",
+    "description": "Готовлю в ресторане, но мог бы стать твоим личным шефом",
     "photos": [
       "https://i.pinimg.com/736x/c0/eb/6e/c0eb6e4c0f3be43940ade5b466ad1e1d.jpg",
-      "https://i.pinimg.com/736x/ab/4b/cb/ab4bcb74dc54fe26aced0c2f2bcaa90d.jpg"
+      "https://i.pinimg.com/736x/e7/d5/cc/e7d5cc09118525959d6b2818868c375c.jpg"
     ],
     "is_match": true
   },
@@ -219,7 +219,7 @@ const profiles = [
       "фикс",
       "фильтр"
     ],
-    "description": "адекватное описание",
+    "description": "-",
     "photos": [
       "https://i.pinimg.com/736x/b0/57/81/b05781e22c51984ad78cd1fd55e72f1a.jpg"
     ],
