@@ -1,5 +1,5 @@
 // profiles.js - общий файл с данными профилей
-// Автоматически сгенерировано редактором 28.02.2026, 12:23:58
+// Автоматически сгенерировано редактором 28.02.2026, 12:25:36
 const profiles = [
   {
     "name": "Николай, 26",
@@ -223,7 +223,7 @@ const profiles = [
       "https://i.pinimg.com/736x/c0/eb/6e/c0eb6e4c0f3be43940ade5b466ad1e1d.jpg",
       "https://i.pinimg.com/736x/ab/4b/cb/ab4bcb74dc54fe26aced0c2f2bcaa90d.jpg"
     ],
-    "is_match": false
+    "is_match": true
   }
 ];
 
