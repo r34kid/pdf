@@ -199,19 +199,6 @@ const profiles = [
     "is_match": false
   },
   {
-    "name": "Кирилл, 34",
-    "distance": "76 км от вас",
-    "tags": [
-      "фикс",
-      "фильтр"
-    ],
-    "description": "адекватное описание",
-    "photos": [
-      "https://i.pinimg.com/736x/b0/57/81/b05781e22c51984ad78cd1fd55e72f1a.jpg"
-    ],
-    "is_match": false
-  },
-  {
     "name": "Никита, 29",
     "distance": "37 км от вас",
     "tags": [
@@ -224,6 +211,19 @@ const profiles = [
       "https://i.pinimg.com/736x/ab/4b/cb/ab4bcb74dc54fe26aced0c2f2bcaa90d.jpg"
     ],
     "is_match": true
+  },
+  {
+    "name": "Кирилл, 34",
+    "distance": "76 км от вас",
+    "tags": [
+      "фикс",
+      "фильтр"
+    ],
+    "description": "адекватное описание",
+    "photos": [
+      "https://i.pinimg.com/736x/b0/57/81/b05781e22c51984ad78cd1fd55e72f1a.jpg"
+    ],
+    "is_match": false
   }
 ];
 
