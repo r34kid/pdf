@@ -1,5 +1,5 @@
 // profiles.js - общий файл с данными профилей
-// Автоматически сгенерировано редактором 28.02.2026, 12:07:59
+// Автоматически сгенерировано редактором 28.02.2026, 12:23:49
 const profiles = [
   {
     "name": "Николай, 26",
@@ -13,7 +13,7 @@ const profiles = [
     ],
     "description": "ищу Стрелец/Весы/Овен\nЦеню искренность, чувство юмора, умение наслаждаться простыми вещами",
     "photos": [
-      "https://avatars.mds.yandex.net/i?id=54020f314bf0b160580083a7fc3062dd_l-5885384-images-thumbs&n=13"
+      "https://i.pinimg.com/736x/d8/c6/36/d8c6364b57dbe2cf7a56835f08e50fdb.jpg"
     ],
     "is_match": false
   },
@@ -220,7 +220,8 @@ const profiles = [
     ],
     "description": "адекватное",
     "photos": [
-      "https://i.pinimg.com/736x/c0/eb/6e/c0eb6e4c0f3be43940ade5b466ad1e1d.jpg"
+      "https://i.pinimg.com/736x/c0/eb/6e/c0eb6e4c0f3be43940ade5b466ad1e1d.jpg",
+      "https://i.pinimg.com/736x/ab/4b/cb/ab4bcb74dc54fe26aced0c2f2bcaa90d.jpg"
     ],
     "is_match": false
   }
